@@ -1,10 +1,10 @@
 extends Node2D
 
-@onready var nodes = $TrackNodes.get_children()
-@onready var train = $TrainCar
-@onready var agent = train.get_node("NavigationAgent2D")
+@onready var nodes:Array[Node] = $TrackNodes.get_children()
+@onready var train:CharacterBody2D = $TrainCar
+@onready var agent:NavigationAgent2D = train.get_node("NavigationAgent2D")
 var movespeed:float = 200.0
-var goto_node = 0
+var goto_node:int = 0
 
 
 func _ready():
