@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Event" load_steps=4 format=3 uid="uid://bu5pceehk6hju"]
+
+[ext_resource type="Script" path="res://choice.gd" id="1_1g3uw"]
+[ext_resource type="Script" path="res://event.gd" id="2_8qaav"]
+
+[sub_resource type="Resource" id="Resource_fnlbb"]
+script = ExtResource("1_1g3uw")
+next_event_id = 50
+text = "continue"
+effect_list = Array[int]([])
+
+[resource]
+script = ExtResource("2_8qaav")
+id = 0
+name = "The beginning"
+description = "this is the beginning event of the game"
+choice_list = Array[ExtResource("1_1g3uw")]([SubResource("Resource_fnlbb")])

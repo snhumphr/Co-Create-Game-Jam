@@ -1,21 +1,25 @@
 extends Control
 
-var events_list = []
+var events_dict = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	load_events("res://resources/events", events_list)
-	display_choice(events_list[0])
+	load_events("res://resources/events", events_dict)
+	display_choice(events_dict[0])
 
-func load_events(path: String, list: Array):
+func load_events(path: String, dict: Dictionary):
 	var dir = DirAccess.open(path)
 	if dir:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
 			if not dir.current_is_dir():
-				list.append(load(path + "/" + file_name))
+				var event = load(path + "/" + file_name)
+				if not dict.has(event.id):
+					dict[event.id] = event
+				else:
+					printerr("Error, duplicate id detected: " + str(event.id))
 			file_name = dir.get_next()
 		dir.list_dir_end()
 	else:
@@ -40,7 +44,14 @@ func apply_effect(effect: GlobalDataSingle.Effect):
 	
 func _on_choices_item_activated(index: int, event: Event):
 	
-	var effect_list = event.choice_list[index].effect_list
+	get_tree().call_group("event", "queue_free")
+	
+	var choice = event.choice_list[index]
+	var effect_list = choice.effect_list
+	var next_event_id = choice.next_event_id
 	
 	for effect in effect_list:
 		apply_effect(effect)
+		
+	if next_event_id > -1:
+		display_choice(events_dict[next_event_id])

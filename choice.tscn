@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://choices.gd" id="1_0wnxu"]
 
-[node name="choice" type="PanelContainer"]
+[node name="choice" type="PanelContainer" groups=["event"]]
 offset_right = 500.0
 offset_bottom = 500.0
 script = ExtResource("1_0wnxu")

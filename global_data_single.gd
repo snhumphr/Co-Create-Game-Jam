@@ -4,5 +4,6 @@ enum Effect {
 	layRail,
 	repairRail,
 	triggerHunter,
-	damageTrain
+	damageTrain,
+	advanceIntro
 }
