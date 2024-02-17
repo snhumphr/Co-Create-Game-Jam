@@ -17,6 +17,7 @@ func display_choice():
 	var event_list = []
 	
 	var river_event = Event.new()
+	river_event.description = "the rail ahead has been submerged by a river, blocking the easy path"
 	var ford_river = Choice.new()
 	ford_river.text = "ford the river with your train"
 	ford_river.effect_list.append(GlobalDataSingle.Effect.damageTrain)
