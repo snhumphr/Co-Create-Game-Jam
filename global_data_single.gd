@@ -1,9 +1,17 @@
 extends Node
 
 enum Effect {
-	layRail,
+	damageRail,
 	repairRail,
 	triggerHunter,
 	damageTrain,
-	advanceIntro
+	repairTrain,
+	collectFirstIngredient,
+	collectSecondIngredient,
+	collectThirdIngredient,
+	gainFuel,
+	loseFuel,
+	slowTrain,
+	speedTrain,
+	collectRandomIngredient
 }

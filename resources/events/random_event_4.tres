@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://co6eexe8l720j"]
+
+[ext_resource type="Script" path="res://choice.gd" id="1_l6ih1"]
+[ext_resource type="Script" path="res://event.gd" id="2_foytp"]
+
+[sub_resource type="Resource" id="Resource_w5r04"]
+script = ExtResource("1_l6ih1")
+next_event_id = -1
+text = "Cannibalize the train to repair the track"
+effect_list = Array[int]([3])
+
+[sub_resource type="Resource" id="Resource_wsmcg"]
+script = ExtResource("1_l6ih1")
+next_event_id = -1
+text = "Take a detour around the broken rail"
+effect_list = Array[int]([9])
+
+[resource]
+script = ExtResource("2_foytp")
+id = 53
+name = "Fatigue..."
+description = "The track ahead is broken, fatigued rails snappped by overuse.
+
+Fixing the rail is possible, but would require materials taken from the train itself.
+
+Alternatively, you could try to find another way around through the rural rail network, burning through your fuel reserves"
+choice_list = Array[ExtResource("1_l6ih1")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg")])

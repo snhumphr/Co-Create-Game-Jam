@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://bm1r0q3qtbfci"]
+
+[ext_resource type="Script" path="res://choice.gd" id="1_bdf6u"]
+[ext_resource type="Script" path="res://event.gd" id="2_ct567"]
+
+[sub_resource type="Resource" id="Resource_w5r04"]
+script = ExtResource("1_bdf6u")
+next_event_id = -1
+text = "Continue on your way"
+effect_list = Array[int]([])
+
+[sub_resource type="Resource" id="Resource_wsmcg"]
+script = ExtResource("1_bdf6u")
+next_event_id = -1
+text = "Say nothing, collect the taxes yourself"
+effect_list = Array[int]([4, 8])
+
+[resource]
+script = ExtResource("2_ct567")
+id = 54
+name = "Bounty..."
+description = "Stopping at a local rail station, you observe a strange commotion: The locals are ready for you, with siloes full of supplies.
+
+It soon becomes evident that they have mistaken you for the royal tax collector, who has been running very late.
+
+You could correct them of this misunderstanding, and continue on your own task.
+
+...Or you could take the taxes yourself, which include useful materials like iron and coal."
+choice_list = Array[ExtResource("1_bdf6u")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg")])

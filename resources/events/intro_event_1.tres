@@ -5,13 +5,22 @@
 
 [sub_resource type="Resource" id="Resource_fnlbb"]
 script = ExtResource("1_1g3uw")
-next_event_id = 50
-text = "continue"
+next_event_id = 1
+text = "You will not fail"
 effect_list = Array[int]([])
 
 [resource]
 script = ExtResource("2_8qaav")
 id = 0
-name = "The beginning"
-description = "this is the beginning event of the game"
+name = "The [color=red]King[/color] is ailing..."
+description = "
+
+The power which once linked the known world with iron rail, is now so weak that [color=red]He[/color] can barely stand unassisted.
+
+Summoned to the royal court, you were given a task: The [color=red]King[/color]'s alchemists have devised an elixir, using the far-flung resources of the grand kingdom to cheat death.
+
+You, and your train, are to collect the ingredients for the great elixir, and return them. 
+
+A dangerous journey, through baneful fog and ill-kept rail, but success will earn you great renown. But if you fail... [color=red]His[/color] wrath will be considerable.
+"
 choice_list = Array[ExtResource("1_1g3uw")]([SubResource("Resource_fnlbb")])

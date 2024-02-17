@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://th7j5kt641q8"]
+
+[ext_resource type="Script" path="res://choice.gd" id="1_qengj"]
+[ext_resource type="Script" path="res://event.gd" id="2_583s1"]
+
+[sub_resource type="Resource" id="Resource_w5r04"]
+script = ExtResource("1_qengj")
+next_event_id = -1
+text = "Accept the ingredient"
+effect_list = Array[int]([3])
+
+[sub_resource type="Resource" id="Resource_wsmcg"]
+script = ExtResource("1_qengj")
+next_event_id = -1
+text = "Refuse the suspicious emissary"
+effect_list = Array[int]([])
+
+[resource]
+script = ExtResource("2_583s1")
+id = 56
+name = "Fortune?"
+description = "A fellow royal emissary, crimson tabard tattered, hails your train.
+
+They seem to know your task, and claim to have been sent ahead to procure the ingredients of the elixir.
+Their train was taken by bandits, but the emissary was thankfully able to recover the ingredient: A strange black powder.
+
+You could take on the emissary's task and transport the ingredient yourself...
+
+...Or you could decline, fearing fraud. Some of those rents in their clothing seem like knife wounds."
+choice_list = Array[ExtResource("1_qengj")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg")])

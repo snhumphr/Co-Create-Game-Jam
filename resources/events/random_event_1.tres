@@ -6,18 +6,22 @@
 [sub_resource type="Resource" id="Resource_w5r04"]
 script = ExtResource("1_2r78w")
 next_event_id = -1
-text = "ford the river with your train"
+text = "Ford the river with your train"
 effect_list = Array[int]([3])
 
 [sub_resource type="Resource" id="Resource_wsmcg"]
 script = ExtResource("1_2r78w")
 next_event_id = -1
-text = "go around, braving the mists"
+text = "Go around the river, the slower way"
 effect_list = Array[int]([2])
 
 [resource]
 script = ExtResource("1_vc1w3")
 id = 50
 name = "A Deluge..."
-description = "a river blocks the easy path ahead on the rail"
+description = "The track ahead of you has been overtaken by a raging river.
+
+You could pass through the water, trusting to your strong engines to bring you through... but surely not unscathed.
+
+Or you could navigate around the back roads, through the country, avoiding the river entirely. Although beware that delay is a danger all it's own."
 choice_list = Array[ExtResource("1_2r78w")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg")])
