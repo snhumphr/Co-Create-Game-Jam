@@ -1,3 +1,8 @@
 extends Node
 
-var namesDict
+enum Effect {
+	layRail,
+	repairRail,
+	triggerHunter,
+	damageTrain
+}

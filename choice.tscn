@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfqds44a07m50"]
 
-[ext_resource type="Script" path="res://choice.gd" id="1_0wnxu"]
+[ext_resource type="Script" path="res://choices.gd" id="1_0wnxu"]
 
 [node name="choice" type="PanelContainer"]
 offset_right = 500.0

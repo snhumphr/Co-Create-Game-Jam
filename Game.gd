@@ -1,11 +1,6 @@
 extends Control
 
-enum Effect {
-	layRail,
-	repairRail,
-	triggerHunter,
-	damageTrain
-}
+var events_list = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,19 +14,31 @@ func display_choice():
 	var instance = scene.instantiate()
 	self.add_child(instance)
 	
-	var choice_list = ["ford the river with your train", "go around the river, like a boring person"]
-	var effect_list = [[Effect.damageTrain], [Effect.triggerHunter]]
+	var event_list = []
 	
-	var choices = instance.init(choice_list, effect_list)
-	choices.item_activated.connect(_on_choices_item_activated.bind(effect_list))
+	var river_event = Event.new()
+	var ford_river = Choice.new()
+	ford_river.text = "ford the river with your train"
+	ford_river.effect_list.append(GlobalDataSingle.Effect.damageTrain)
+	var go_around = Choice.new()
+	go_around.text = "go around, daring the mists"
+	go_around.effect_list.append(GlobalDataSingle.Effect.triggerHunter)
 	
-func apply_effect(effect: Effect):
+	river_event.choice_list.append(ford_river)
+	river_event.choice_list.append(go_around)
+	
+	var choices = instance.init(river_event)
+	choices.item_activated.connect(_on_choices_item_activated.bind(river_event))
+	
+func apply_effect(effect: GlobalDataSingle.Effect):
 	
 	match effect:
 		_:
 			printerr("Effect not recognized: " + str(effect))
 	
-func _on_choices_item_activated(index: int, effect_list: Array):
+func _on_choices_item_activated(index: int, event: Event):
 	
-	for effect in effect_list[index]:
+	var effect_list = event.choice_list[index].effect_list
+	
+	for effect in effect_list:
 		apply_effect(effect)
