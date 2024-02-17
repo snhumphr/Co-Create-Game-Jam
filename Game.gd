@@ -5,10 +5,23 @@ var events_list = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	pass
-	display_choice()
+	load_events("res://resources/events", events_list)
+	display_choice(events_list[0])
 
-func display_choice():
+func load_events(path: String, list: Array):
+	var dir = DirAccess.open(path)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if not dir.current_is_dir():
+				list.append(load(path + "/" + file_name))
+			file_name = dir.get_next()
+		dir.list_dir_end()
+	else:
+		printerr("An error occurred when trying to access the path.")
+
+func display_choice(event: Event):
 	
 	var scene = load("res://choice.tscn")
 	var instance = scene.instantiate()
@@ -16,20 +29,8 @@ func display_choice():
 	
 	var event_list = []
 	
-	var river_event = Event.new()
-	river_event.description = "the rail ahead has been submerged by a river, blocking the easy path"
-	var ford_river = Choice.new()
-	ford_river.text = "ford the river with your train"
-	ford_river.effect_list.append(GlobalDataSingle.Effect.damageTrain)
-	var go_around = Choice.new()
-	go_around.text = "go around, daring the mists"
-	go_around.effect_list.append(GlobalDataSingle.Effect.triggerHunter)
-	
-	river_event.choice_list.append(ford_river)
-	river_event.choice_list.append(go_around)
-	
-	var choices = instance.init(river_event)
-	choices.item_activated.connect(_on_choices_item_activated.bind(river_event))
+	var choices = instance.init(event)
+	choices.item_activated.connect(_on_choices_item_activated.bind(event))
 	
 func apply_effect(effect: GlobalDataSingle.Effect):
 	

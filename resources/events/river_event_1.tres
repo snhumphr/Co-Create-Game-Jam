@@ -1,3 +1,21 @@
-[gd_resource type="Resource" format=3 uid="uid://bi4latcxn35xr"]
+[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://be8mly21gqqd6"]
+
+[ext_resource type="Script" path="res://choice.gd" id="1_2r78w"]
+[ext_resource type="Script" path="res://event.gd" id="1_vc1w3"]
+
+[sub_resource type="Resource" id="Resource_w5r04"]
+script = ExtResource("1_2r78w")
+text = "ford the river with your train"
+effect_list = Array[int]([3])
+
+[sub_resource type="Resource" id="Resource_wsmcg"]
+script = ExtResource("1_2r78w")
+text = "go around, braving the mists"
+effect_list = Array[int]([2])
 
 [resource]
+script = ExtResource("1_vc1w3")
+id = 0
+name = "A Deluge..."
+description = "a river blocks the easy path ahead on the rail"
+choice_list = Array[ExtResource("1_2r78w")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg")])
