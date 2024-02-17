@@ -3,8 +3,17 @@
 [ext_resource type="Script" path="res://choices.gd" id="1_0wnxu"]
 
 [node name="choice" type="PanelContainer" groups=["event"]]
-offset_right = 500.0
-offset_bottom = 500.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_0wnxu")
 
 [node name="layout" type="Control" parent="."]
