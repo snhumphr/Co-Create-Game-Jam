@@ -74,7 +74,11 @@ func _physics_process(delta):
 		else:
 			# continue straight
 			agent.target_position = next_point
-	velocity = global_position.direction_to(agent.get_next_path_position()) * movespeed
+			
+	var speedup_modifier = 1.0
+	if Input.is_action_pressed("train_speedup"):
+		speedup_modifier = 3.0
+	velocity = global_position.direction_to(agent.get_next_path_position()) * movespeed * speedup_modifier
 	move_and_slide()
 
 
