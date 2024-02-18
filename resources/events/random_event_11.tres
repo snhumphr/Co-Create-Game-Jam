@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://2cqxmu1xxh4g"]
+[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://bqjbkp00q3gsa"]
 
-[ext_resource type="Script" path="res://choice.gd" id="1_nfu6d"]
-[ext_resource type="Script" path="res://event.gd" id="2_0e4ri"]
+[ext_resource type="Script" path="res://choice.gd" id="1_dt7jd"]
+[ext_resource type="Script" path="res://event.gd" id="2_iuwy0"]
 
 [sub_resource type="Resource" id="Resource_w5r04"]
-script = ExtResource("1_nfu6d")
+script = ExtResource("1_dt7jd")
 next_event_id = -1
 text = "Ration the water"
 effect_list = Array[int]([16])
@@ -12,15 +12,15 @@ upgrade = 6
 requires_upgrade = false
 
 [sub_resource type="Resource" id="Resource_wsmcg"]
-script = ExtResource("1_nfu6d")
+script = ExtResource("1_dt7jd")
 next_event_id = -1
 text = "Open the stores"
-effect_list = Array[int]([10])
+effect_list = Array[int]([])
 upgrade = 0
 requires_upgrade = false
 
 [sub_resource type="Resource" id="Resource_mt5of"]
-script = ExtResource("1_nfu6d")
+script = ExtResource("1_dt7jd")
 next_event_id = -1
 text = "[Upgrade]Treat the crew in the medical car"
 effect_list = Array[int]([])
@@ -28,8 +28,8 @@ upgrade = 5
 requires_upgrade = true
 
 [resource]
-script = ExtResource("2_0e4ri")
-id = 52
+script = ExtResource("2_iuwy0")
+id = 60
 name = "Disease..."
 description = "Many aboard your train have fallen sick as of late, reducing your complement to a skeleton crew.
 
@@ -39,4 +39,4 @@ Unfortunately, the lands you are passing through are barren and dry, and the wat
 If you ration the water, the crew will take longer to recover, slowing the train's speed.
 
 But if you open the train's stores without restraint, then your fuel reserves will be dangerously low."
-choice_list = Array[ExtResource("1_nfu6d")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg"), SubResource("Resource_mt5of")])
+choice_list = Array[ExtResource("1_dt7jd")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg"), SubResource("Resource_mt5of")])

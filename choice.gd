@@ -6,7 +6,7 @@ enum Upgrade {
 	snailRepellant,
 	waterproofCoating,
 	kingsSigil,
-	fogPiercingTorch,
+	railLayingMachine,
 	medicalCar,
 	highMorale
 }

@@ -8,12 +8,16 @@ script = ExtResource("1_qengj")
 next_event_id = -1
 text = "Accept the ingredient"
 effect_list = Array[int]([3])
+upgrade = 0
+requires_upgrade = false
 
 [sub_resource type="Resource" id="Resource_wsmcg"]
 script = ExtResource("1_qengj")
 next_event_id = -1
 text = "Refuse the suspicious emissary"
 effect_list = Array[int]([])
+upgrade = 0
+requires_upgrade = false
 
 [resource]
 script = ExtResource("2_583s1")

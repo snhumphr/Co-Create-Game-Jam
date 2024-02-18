@@ -19,7 +19,7 @@ var upgrade_dict = {
 	Choice.Upgrade.snailRepellant: false,
 	Choice.Upgrade.waterproofCoating: false,
 	Choice.Upgrade.kingsSigil: false,
-	Choice.Upgrade.fogPiercingTorch: false,
+	Choice.Upgrade.railLayingMachine: false,
 	Choice.Upgrade.medicalCar: false,
 	Choice.Upgrade.highMorale: false
 }
@@ -86,6 +86,9 @@ func apply_effect(effect: GlobalDataSingle.Effect, upgrade: Choice.Upgrade):
 				ingredients_dict[pick_array.pick_random()] = true
 		GlobalDataSingle.Effect.applyUpgrade:
 			upgrade_dict[upgrade] = true
+		GlobalDataSingle.Effect.removeUpgrade:
+			if not upgrade == Choice.Upgrade.blank:
+				upgrade_dict[upgrade] = false
 		GlobalDataSingle.Effect.applyRandomUpgrade:
 			var rng = randi_range(1, upgrade_dict.keys().size())
 			upgrade_dict[rng] = true

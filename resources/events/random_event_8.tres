@@ -8,12 +8,16 @@ script = ExtResource("1_aadec")
 next_event_id = -1
 text = "Tell them that Fate is indifferent"
 effect_list = Array[int]([])
+upgrade = 0
+requires_upgrade = false
 
 [sub_resource type="Resource" id="Resource_wsmcg"]
 script = ExtResource("1_aadec")
 next_event_id = -1
 text = "Tell them that Providence smiles on you"
-effect_list = Array[int]([])
+effect_list = Array[int]([13])
+upgrade = 6
+requires_upgrade = false
 
 [resource]
 script = ExtResource("2_jb6u2")

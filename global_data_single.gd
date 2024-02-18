@@ -16,5 +16,6 @@ enum Effect {
 	collectRandomIngredient,
 	applyUpgrade,
 	applyRandomUpgrade,
-	removeRandomUpgrade
+	removeRandomUpgrade,
+	removeUpgrade
 }

@@ -15,15 +15,15 @@ requires_upgrade = false
 script = ExtResource("1_80qww")
 next_event_id = -1
 text = "Rob the rebels and depart"
-effect_list = Array[int]([0, 8])
+effect_list = Array[int]([3, 14])
 upgrade = 0
 requires_upgrade = false
 
 [sub_resource type="Resource" id="Resource_0ff2p"]
 script = ExtResource("1_80qww")
 next_event_id = -1
-text = "[Upgrade]Cow the rebels with the king's sigil"
-effect_list = Array[int]([])
+text = "[Upgrade]Cow the rebels with the King's sigil"
+effect_list = Array[int]([14])
 upgrade = 3
 requires_upgrade = true
 

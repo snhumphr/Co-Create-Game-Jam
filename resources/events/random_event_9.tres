@@ -7,19 +7,25 @@
 script = ExtResource("1_pxd6g")
 next_event_id = -1
 text = "Push the train faster"
-effect_list = Array[int]([11])
+effect_list = Array[int]([11, 16])
+upgrade = 6
+requires_upgrade = false
 
 [sub_resource type="Resource" id="Resource_wsmcg"]
 script = ExtResource("1_pxd6g")
 next_event_id = -1
 text = "Get some repairs done"
-effect_list = Array[int]([4])
+effect_list = Array[int]([4, 16])
+upgrade = 6
+requires_upgrade = false
 
 [sub_resource type="Resource" id="Resource_7ub7e"]
 script = ExtResource("1_pxd6g")
 next_event_id = -1
 text = "Let the crew enjoy themselves"
-effect_list = Array[int]([])
+effect_list = Array[int]([13])
+upgrade = 6
+requires_upgrade = false
 
 [resource]
 script = ExtResource("2_2xs27")
