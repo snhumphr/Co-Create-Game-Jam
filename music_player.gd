@@ -41,8 +41,15 @@ func _process(delta):
 	current_goodness = lerp(current_goodness, target_goodness, delta * transition_speed)
 	current_energy = lerp(current_energy, target_energy, delta * transition_speed)
 	
+	# Set volumes based on current mood
 	piano.volume_db = frac_to_db(1.0 - current_energy)
+	
+	claps.volume_db = frac_to_db(current_energy)
 	acoustic_guitar.volume_db = frac_to_db(current_energy)
+	
+	bass_pluck.volume_db = frac_to_db(1.0 - current_goodness)
+	
+	tubes.volume_db = frac_to_db(current_goodness)
 	
 func receive_music_change(change: MusicChange):
 	if change.is_additive:
