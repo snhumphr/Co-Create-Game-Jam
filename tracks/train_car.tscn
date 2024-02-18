@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://ciilgxbyqticn"]
+[gd_scene load_steps=61 format=3 uid="uid://ciilgxbyqticn"]
 
 [ext_resource type="Script" path="res://tracks/train_car.gd" id="1_1ka1h"]
 [ext_resource type="Texture2D" uid="uid://bg2ico3dcolov" path="res://resources/tilemap_packed.png" id="1_5ty5e"]
@@ -375,6 +375,15 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7d6r"]
 size = Vector2(16, 16)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e7314"]
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hrjlj"]
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4lwy0"]
+light_mode = 2
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m24xm"]
 bg_color = Color(0, 0, 0, 1)
 
@@ -420,6 +429,7 @@ shape = SubResource("RectangleShape2D_u7d6r")
 [node name="UI" type="HBoxContainer" parent="."]
 z_index = 999
 z_as_relative = false
+material = SubResource("CanvasItemMaterial_e7314")
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = -111.5
@@ -431,10 +441,12 @@ mouse_filter = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="UI"]
+material = SubResource("CanvasItemMaterial_hrjlj")
 layout_mode = 2
 text = "Train Integrity: "
 
 [node name="ProgressBar" type="ProgressBar" parent="UI" groups=["hp_bar"]]
+material = SubResource("CanvasItemMaterial_4lwy0")
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 mouse_filter = 2
