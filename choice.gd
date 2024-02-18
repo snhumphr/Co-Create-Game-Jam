@@ -15,5 +15,7 @@ enum Upgrade {
 @export var text: String
 @export var effect_list: Array[GlobalDataSingle.Effect]
 
+@export var result_text: String = ""
+
 @export var upgrade: Upgrade = Upgrade.blank
 @export var requires_upgrade: bool = false

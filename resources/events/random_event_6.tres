@@ -8,6 +8,7 @@ script = ExtResource("1_p72e8")
 next_event_id = -1
 text = "Accept the ingredient"
 effect_list = Array[int]([12])
+result_text = "Thanking the emissary, you take on the ingredient. After some testing, the royal alchemist aboard concludes that the powder is a refined form of one of the ingredients for the elixir."
 upgrade = 0
 requires_upgrade = false
 
@@ -15,7 +16,8 @@ requires_upgrade = false
 script = ExtResource("1_p72e8")
 next_event_id = -1
 text = "Refuse the suspicious emissary"
-effect_list = Array[int]([4, 8])
+effect_list = Array[int]([])
+result_text = "The 'emissary' shouts abuse at you as you leave, but the train's sturdy plating sheds their curses like water."
 upgrade = 0
 requires_upgrade = false
 

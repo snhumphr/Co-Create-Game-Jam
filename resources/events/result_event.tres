@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Event" load_steps=4 format=3 uid="uid://bx36r564t6ppx"]
+
+[ext_resource type="Script" path="res://choice.gd" id="1_kr5n7"]
+[ext_resource type="Script" path="res://event.gd" id="2_rmj83"]
+
+[sub_resource type="Resource" id="Resource_fnlbb"]
+script = ExtResource("1_kr5n7")
+next_event_id = -1
+text = "OK"
+effect_list = Array[int]([])
+result_text = ""
+upgrade = 0
+requires_upgrade = false
+
+[resource]
+script = ExtResource("2_rmj83")
+id = 999
+name = "Results"
+description = ""
+good = false
+bad = false
+choice_list = Array[ExtResource("1_kr5n7")]([SubResource("Resource_fnlbb")])

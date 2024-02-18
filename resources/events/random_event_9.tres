@@ -8,6 +8,7 @@ script = ExtResource("1_pxd6g")
 next_event_id = -1
 text = "Push the train faster"
 effect_list = Array[int]([11, 16])
+result_text = "You take the opportunity of the good weather to go faster, since you don't need to worry about fog for once."
 upgrade = 6
 requires_upgrade = false
 
@@ -16,6 +17,7 @@ script = ExtResource("1_pxd6g")
 next_event_id = -1
 text = "Get some repairs done"
 effect_list = Array[int]([4, 16])
+result_text = "You take the opportunity of the good weather to repair the train's plating, a task normally complicated by the rain."
 upgrade = 6
 requires_upgrade = false
 
@@ -24,6 +26,7 @@ script = ExtResource("1_pxd6g")
 next_event_id = -1
 text = "Let the crew enjoy themselves"
 effect_list = Array[int]([13])
+result_text = "With the [color=red]King[/color] ailing, it's been a long time since anyone's seen the sun. You don't have the heart to make them work double shifts under that calming light."
 upgrade = 6
 requires_upgrade = false
 

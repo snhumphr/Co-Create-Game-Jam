@@ -8,6 +8,7 @@ script = ExtResource("1_mxgbj")
 next_event_id = -1
 text = "Continue through the storm"
 effect_list = Array[int]([11, 3])
+result_text = "The train races down the rain-slick rails. You're making good time, but you hear a *SNAP* as something gives way in the wheels after a tight turn. Hopefully that wasn't anything important."
 upgrade = 0
 requires_upgrade = false
 
@@ -16,6 +17,7 @@ script = ExtResource("1_mxgbj")
 next_event_id = -1
 text = "Slow down and stay safe"
 effect_list = Array[int]([10])
+result_text = "The delay is agonizing, given the urgency of your task, but the slippery rails make it necessary."
 upgrade = 0
 requires_upgrade = false
 

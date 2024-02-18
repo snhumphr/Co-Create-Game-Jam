@@ -8,6 +8,7 @@ script = ExtResource("1_80qww")
 next_event_id = -1
 text = "Settle the conflict, preserve the station"
 effect_list = Array[int]([])
+result_text = "The rebels prove willing to negotiate. But by the time the conflict is under control, they have little to offer you in return."
 upgrade = 0
 requires_upgrade = false
 
@@ -16,6 +17,7 @@ script = ExtResource("1_80qww")
 next_event_id = -1
 text = "Rob the rebels and depart"
 effect_list = Array[int]([3, 14])
+result_text = "Working quickly, you enhance the train with materials taken from an unattended warehouse. But as you depart, a stray shot from the rebels clips the train."
 upgrade = 0
 requires_upgrade = false
 
@@ -24,6 +26,7 @@ script = ExtResource("1_80qww")
 next_event_id = -1
 text = "[Upgrade]Cow the rebels with the King's sigil"
 effect_list = Array[int]([14])
+result_text = "The rebels quickly fold, following your display of authority. They meekly follow your instructions in enhancing the train."
 upgrade = 3
 requires_upgrade = true
 
@@ -33,9 +36,9 @@ id = 51
 name = "Disorder..."
 description = "The rail station you stopped at is in the throes of a fleeting rebellion against the [color=red]King[/color].
 
-As a direct emissary of the King, you could grant legitimacy to the rebels, in order to preserve the station for your return journey.
+As a direct emissary of the King, you could grant legitimacy to the rebels, in order to preserve the peace.
 
-Or, you could take the opportunity of the disorder to pilfer the rebels' stores."
+Or, you could take the opportunity of the disorder to pilfer the rebels' stores to enhance your train."
 good = false
 bad = true
 choice_list = Array[ExtResource("1_80qww")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg"), SubResource("Resource_0ff2p")])

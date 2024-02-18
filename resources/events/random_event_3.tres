@@ -8,6 +8,7 @@ script = ExtResource("1_nfu6d")
 next_event_id = -1
 text = "Ration the water"
 effect_list = Array[int]([16])
+result_text = "The crew aren't happy at all about the rationing, but you're able to keep the train running, despite many crew being sick."
 upgrade = 6
 requires_upgrade = false
 
@@ -16,6 +17,7 @@ script = ExtResource("1_nfu6d")
 next_event_id = -1
 text = "Open the stores"
 effect_list = Array[int]([10])
+result_text = "You open the train's stores of water, and your hardy crew recover quickly. But you're forced to push the engine beyond it's"
 upgrade = 0
 requires_upgrade = false
 
@@ -24,6 +26,7 @@ script = ExtResource("1_nfu6d")
 next_event_id = -1
 text = "[Upgrade]Treat the crew in the medical car"
 effect_list = Array[int]([])
+result_text = "Thankfully, the attached medical car is able to return the sick crew to help before the water shortage becomes a problem."
 upgrade = 5
 requires_upgrade = true
 
@@ -36,9 +39,9 @@ description = "Many aboard your train have fallen sick as of late, reducing your
 A royal alchemist, sent along to aid in the creation of the elixit, advises that they need water to recover quickly.
 Unfortunately, the lands you are passing through are barren and dry, and the water aboard is needed for the engine.
 
-If you ration the water, the crew will take longer to recover, slowing the train's speed.
+If you ration the water, the crew will take longer to recover, greatly affecting their morale.
 
-But if you open the train's stores without restraint, then your fuel reserves will be dangerously low."
+But if you open the train's stores without restraint, then your fuel reserves will be dangerously low, slowing the train."
 good = false
 bad = true
 choice_list = Array[ExtResource("1_nfu6d")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg"), SubResource("Resource_mt5of")])

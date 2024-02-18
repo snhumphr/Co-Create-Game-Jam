@@ -8,6 +8,7 @@ script = ExtResource("1_bdf6u")
 next_event_id = -1
 text = "Continue on your way"
 effect_list = Array[int]([])
+result_text = "You inform them of the misunderstanding, and continue your journey. It makes you uneasy how quickly the kingdom is deteriorating, with the [color=red]King[/color] ill."
 upgrade = 0
 requires_upgrade = false
 
@@ -15,15 +16,17 @@ requires_upgrade = false
 script = ExtResource("1_bdf6u")
 next_event_id = -1
 text = "Say nothing, collect the taxes yourself"
-effect_list = Array[int]([4, 8])
+effect_list = Array[int]([4, 14])
+result_text = "The locals load up your train with metal, coal and valuable train parts without complaint."
 upgrade = 0
 requires_upgrade = false
 
 [sub_resource type="Resource" id="Resource_1ukb5"]
 script = ExtResource("1_bdf6u")
 next_event_id = -1
-text = "[Upgrade]Exempt the locals from taxes entirely with the King's sigil"
+text = "[Upgrade]Exempt the locals from taxes with the King's sigil"
 effect_list = Array[int]([])
+result_text = "The locals cheer at your decree, and you realize suddenly that they couldn't have spared these supplies in the first place."
 upgrade = 0
 requires_upgrade = false
 

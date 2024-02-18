@@ -8,6 +8,7 @@ script = ExtResource("1_aadec")
 next_event_id = -1
 text = "Tell them that Fate is indifferent"
 effect_list = Array[int]([])
+result_text = "The crew trust your words. You make them understand that there is no such thing as luck."
 upgrade = 0
 requires_upgrade = false
 
@@ -16,6 +17,7 @@ script = ExtResource("1_aadec")
 next_event_id = -1
 text = "Tell them that Providence smiles on you"
 effect_list = Array[int]([13])
+result_text = "The crew trust your words. You encourage their good cheer, and they take your endorsement as yet another sign."
 upgrade = 6
 requires_upgrade = false
 

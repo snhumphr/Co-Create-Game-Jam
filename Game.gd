@@ -1,6 +1,8 @@
 extends Control
 
 var events_dict = {}
+
+var testing_events = false
 var counter = 50
 
 var train_max_hp = 3
@@ -24,12 +26,22 @@ var upgrade_dict = {
 	Choice.Upgrade.highMorale: false
 }
 
+var upgrade_names = {
+	Choice.Upgrade.blank: "N/A",
+	Choice.Upgrade.snailRepellant: "Snail Repellant",
+	Choice.Upgrade.waterproofCoating: "Waterproof Coating",
+	Choice.Upgrade.kingsSigil: "King's Sigil",
+	Choice.Upgrade.railLayingMachine: "Rail Laying Machine",
+	Choice.Upgrade.medicalCar: "Medical Car",
+	Choice.Upgrade.highMorale: "High Morale"
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
 	load_events("res://resources/events", events_dict)
 
-	print(upgrade_dict)
+	#print(upgrade_dict)
 
 	display_choice(events_dict[50])
 
@@ -56,45 +68,85 @@ func display_choice(event: Event):
 	var instance = scene.instantiate()
 	self.add_child(instance)
 
-	var event_list = []
+	var choices = instance.init(event, upgrade_dict)
+	choices.item_activated.connect(_on_choices_item_activated.bind(event))
+	
+func display_event_result(result_text: Array):
+
+	var scene = load("res://choice.tscn")
+	var instance = scene.instantiate()
+	self.add_child(instance)
+
+	var event = events_dict[999]
+	event.description = ""
+	for text in result_text:
+		event.description += text
 
 	var choices = instance.init(event, upgrade_dict)
 	choices.item_activated.connect(_on_choices_item_activated.bind(event))
 
 func apply_effect(effect: GlobalDataSingle.Effect, upgrade: Choice.Upgrade):
 
-	var keys = ingredients_dict.keys()
+	var keys = []
+	var remove = effect == GlobalDataSingle.Effect.removeRandomUpgrade
+
+	for key in upgrade_dict.keys():
+		if upgrade_dict[key] == remove:
+			keys.append(key)
 
 	match effect:
+		GlobalDataSingle.Effect.triggerHunter:
+			#TODO: if we don't have time to implement the snail, just apply slow
+			return apply_effect(GlobalDataSingle.Effect.slowTrain, upgrade) 
+		GlobalDataSingle.Effect.speedTrain:
+			#TODO: Implement train slowing and speeding effects
+			return "[color=green]The train's speed increases![/color]"
+		GlobalDataSingle.Effect.slowTrain:
+			return "[color=red]The train's speed decreases...[/color]"
 		GlobalDataSingle.Effect.damageTrain:
 			change_train_hp(-1)
+			return "[color=red]The train was damaged![/color]"
 		GlobalDataSingle.Effect.repairTrain:
 			if train_hp < train_max_hp:
 				change_train_hp(1)
+				return "[color=green]The train was repaired![/color]"
+			else:
+				return "The train could not benefit from more repairs."
 		GlobalDataSingle.Effect.collectFirstIngredient:
-			ingredients_dict[keys[0]] = true
+			ingredients_dict[ingredients_dict.keys()[0]] = true
+			return "[color=green]" + ingredients_dict.keys()[0] + " found![/color]"
 		GlobalDataSingle.Effect.collectSecondIngredient:
-			ingredients_dict[keys[1]] = true
+			ingredients_dict[ingredients_dict.keys()[1]] = true
+			return "[color=green]" + ingredients_dict.keys()[1] + " found![/color]"
 		GlobalDataSingle.Effect.collectThirdIngredient:
-			ingredients_dict[keys[2]] = true
+			ingredients_dict[ingredients_dict.keys()[2]] = true
+			return "[color=green]" + ingredients_dict.keys()[2] + " found![/color]"
 		GlobalDataSingle.Effect.collectRandomIngredient:
 			var pick_array = []
-			for key in keys:
+			for key in ingredients_dict.keys():
 				if not ingredients_dict[key]:
 					pick_array.append(key)
-			if pick_array.length > 0:
+			if pick_array.size() > 0:
 				ingredients_dict[pick_array.pick_random()] = true
+				return "[color=green]" + pick_array.pick_random() + " found![/color]"
 		GlobalDataSingle.Effect.applyUpgrade:
-			upgrade_dict[upgrade] = true
+			if not upgrade_dict[upgrade]:
+				return "[color=green]" + upgrade_names[upgrade] + " upgrade applied![/color]"
+				upgrade_dict[upgrade] = true
+			else:
+				return apply_effect(GlobalDataSingle.Effect.repairTrain, upgrade)
 		GlobalDataSingle.Effect.removeUpgrade:
 			if not upgrade == Choice.Upgrade.blank:
 				upgrade_dict[upgrade] = false
+				return "[color=red]" + upgrade_names[upgrade] + " upgrade removed...[/color]"
 		GlobalDataSingle.Effect.applyRandomUpgrade:
-			var rng = randi_range(1, upgrade_dict.keys().size())
-			upgrade_dict[rng] = true
+			if keys.size() > 0:
+				return apply_effect(GlobalDataSingle.Effect.applyUpgrade, keys.pick_random())
+			else:
+				return apply_effect(GlobalDataSingle.Effect.repairTrain, upgrade)
 		GlobalDataSingle.Effect.removeRandomUpgrade:
-			var rng = randi_range(1, upgrade_dict.keys().size())
-			upgrade_dict[rng] = false
+			if keys.size() > 0:
+				return apply_effect(GlobalDataSingle.Effect.removeUpgrade, keys.pick_random())
 		_:
 			printerr("Effect not recognized: " + str(effect))
 
@@ -106,13 +158,20 @@ func _on_choices_item_activated(index: int, event: Event):
 	var effect_list = choice.effect_list
 	var next_event_id = choice.next_event_id
 
-	for effect in effect_list:
-		apply_effect(effect, choice.upgrade)
+	var result_text = [choice.result_text]
 
-	if next_event_id > -1:
+	for effect in effect_list:
+		result_text.append("\n")
+		result_text.append(apply_effect(effect, choice.upgrade))
+
+	print(result_text)
+
+	if result_text[0] != "":
+		display_event_result(result_text)
+	elif next_event_id > -1:
 		display_choice(events_dict[next_event_id])
-	elif false:
-		counter +=1
+	elif testing_events:
+		counter += 1
 		display_choice(events_dict[counter])
 
 func change_train_hp(change: int):

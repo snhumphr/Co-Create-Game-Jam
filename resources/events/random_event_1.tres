@@ -8,6 +8,7 @@ script = ExtResource("1_2r78w")
 next_event_id = -1
 text = "Ford the river with your train"
 effect_list = Array[int]([3])
+result_text = "The river's currents lash the train brutally... but you make it through."
 upgrade = 0
 requires_upgrade = false
 
@@ -16,6 +17,7 @@ script = ExtResource("1_2r78w")
 next_event_id = -1
 text = "Go around the river, the slower way"
 effect_list = Array[int]([2])
+result_text = "It takes precious hours, but you find a way around the river."
 upgrade = 0
 requires_upgrade = false
 
@@ -24,6 +26,7 @@ script = ExtResource("1_2r78w")
 next_event_id = -1
 text = "[Upgrade]Traverse the river"
 effect_list = Array[int]([])
+result_text = "Protected by your waterproof coating, you ford the river without incident."
 upgrade = 2
 requires_upgrade = true
 

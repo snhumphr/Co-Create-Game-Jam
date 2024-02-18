@@ -8,6 +8,7 @@ script = ExtResource("1_dt7jd")
 next_event_id = -1
 text = "Ration the water"
 effect_list = Array[int]([16])
+result_text = "The crew aren't happy at all about the rationing, but you're able to keep the train running, despite many crew being sick."
 upgrade = 6
 requires_upgrade = false
 
@@ -16,6 +17,7 @@ script = ExtResource("1_dt7jd")
 next_event_id = -1
 text = "Open the stores"
 effect_list = Array[int]([])
+result_text = "You open the train's stores of water, and your hardy crew recover quickly. Thankfully, you're even able to restock your stores before the tank runs dry."
 upgrade = 0
 requires_upgrade = false
 
@@ -24,6 +26,7 @@ script = ExtResource("1_dt7jd")
 next_event_id = -1
 text = "[Upgrade]Treat the crew in the medical car"
 effect_list = Array[int]([])
+result_text = "Thankfully, the attached medical car is able to return the sick crew to help before the water shortage becomes a problem."
 upgrade = 5
 requires_upgrade = true
 
