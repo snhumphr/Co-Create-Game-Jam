@@ -9,6 +9,7 @@ static var instance: MusicPlayer
 @onready var claps: AudioStreamPlayer = $Tracks/Claps
 @onready var plucks: AudioStreamPlayer = $Tracks/Plucks
 @onready var banjo: AudioStreamPlayer = $Tracks/Banjo
+@onready var evil_banjo: AudioStreamPlayer = $"Tracks/Evil Banjo"
 @onready var choir: AudioStreamPlayer = $Tracks/Choir
 @onready var acoustic_guitar: AudioStreamPlayer = $"Tracks/Acoustic Guitar"
 @onready var piano: AudioStreamPlayer = $Tracks/Piano
@@ -31,6 +32,7 @@ func _ready():
 	claps.play(0)
 	plucks.play(0)
 	banjo.play(0)
+	evil_banjo.play(0)
 	choir.play(0)
 	acoustic_guitar.play(0)
 	piano.play(0)
@@ -48,8 +50,10 @@ func _process(delta):
 	acoustic_guitar.volume_db = frac_to_db(current_energy)
 	
 	bass_pluck.volume_db = frac_to_db(1.0 - current_goodness)
+	evil_banjo.volume_db = frac_to_db(1.0 - current_goodness)
 	
 	tubes.volume_db = frac_to_db(current_goodness)
+	banjo.volume_db = frac_to_db(current_goodness)
 	
 func receive_music_change(change: MusicChange):
 	if change.is_additive:
@@ -63,4 +67,4 @@ func set_targets(new_goodness, new_energy):
 	target_energy = max(min(new_energy, 1.0), 0.0)
 	
 func frac_to_db(frac: float) -> float:
-	return lerp(-80, 0, frac)
+	return lerp(-40, 0, min(frac * 1.5, 1.0))
