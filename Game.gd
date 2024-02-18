@@ -224,4 +224,4 @@ func change_train_hp(change: int):
 	var hp_bar = get_tree().get_nodes_in_group("hp_bar")[0]
 	hp_bar.set_value(train_hp)
 	if train_hp == 0:
-		pass #TODO: End the game
+		display_choice(events_dict[600])
