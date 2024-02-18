@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://mgmmpdkejw6t"]
+[gd_scene load_steps=5 format=3 uid="uid://ciilgxbyqticn"]
 
 [ext_resource type="Script" path="res://tracks/train_car.gd" id="1_1ka1h"]
 [ext_resource type="Texture2D" uid="uid://bg2ico3dcolov" path="res://resources/tilemap_packed.png" id="1_5ty5e"]
@@ -30,5 +30,7 @@ target_desired_distance = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_u7d6r")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
