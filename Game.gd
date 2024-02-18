@@ -173,7 +173,7 @@ func _on_choices_item_activated(index: int, event: Event):
 		result_text.append("\n")
 		result_text.append(apply_effect(effect, choice.upgrade))
 
-	print(result_text)
+	#print(result_text)
 
 	if result_text[0] != "":
 		display_event_result(result_text)
@@ -195,7 +195,7 @@ func _on_trigger_random_event():
 			possible_events.append(key)
 	
 	var chosen_event = events_dict[possible_events.pick_random()]
-	events_dict[chosen_event.id].event_seen = true
+	#events_dict[chosen_event.id].event_seen = true
 	
 	display_choice(chosen_event)
 
