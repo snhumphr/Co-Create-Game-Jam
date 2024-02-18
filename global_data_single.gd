@@ -17,5 +17,6 @@ enum Effect {
 	applyUpgrade,
 	applyRandomUpgrade,
 	removeRandomUpgrade,
-	removeUpgrade
+	removeUpgrade,
+	endGame
 }

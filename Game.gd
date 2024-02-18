@@ -13,9 +13,9 @@ var train_hp = 3
 var train_speed = 200.0
 
 var ingredients_dict = {
-	"First": false,
-	"Second": false,
-	"Third": false
+	"Honey": false,
+	"Water": false,
+	"Crystal": false
 }
 
 var upgrade_dict = {
@@ -174,6 +174,8 @@ func apply_effect(effect: GlobalDataSingle.Effect, upgrade: Choice.Upgrade):
 		GlobalDataSingle.Effect.removeRandomUpgrade:
 			if keys.size() > 0:
 				return apply_effect(GlobalDataSingle.Effect.removeUpgrade, keys.pick_random())
+		GlobalDataSingle.Effect.endGame:
+			get_tree().quit()
 		_:
 			printerr("Effect not recognized: " + str(effect))
 

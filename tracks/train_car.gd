@@ -7,6 +7,8 @@ var movespeed:float = 70.0
 
 signal trigger_random_event
 
+signal trigger_major_event
+
 func _ready():
 	call_deferred("wait_for_navserver")
 
@@ -85,3 +87,11 @@ func _on_area_2d_area_entered(area):
 	elif area.name == "EventCollision":
 		area.queue_free()
 		emit_signal("trigger_random_event")
+	elif area.name == "PyramidCollision":
+		emit_signal("trigger_major_event", "Honey")
+	elif area.name == "SpringCollision":
+		emit_signal("trigger_major_event", "Water")
+	elif area.name == "CrystalCollision":
+		emit_signal("trigger_major_event", "Crystal")
+	elif area.name == "CastleCollision":
+		emit_signal("trigger_major_event", "Castle")
