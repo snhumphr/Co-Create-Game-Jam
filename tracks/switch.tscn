@@ -1,14 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8ptgdjo855n0"]
+[gd_scene load_steps=5 format=3 uid="uid://b8ptgdjo855n0"]
 
 [ext_resource type="Script" path="res://tracks/switch.gd" id="1_pf3no"]
+[ext_resource type="Texture2D" uid="uid://cfp4foe6h5jse" path="res://resources/arrow.png" id="2_h8e6w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b53p7"]
+size = Vector2(4, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bp3xh"]
 size = Vector2(64, 64)
 
-[node name="Switch" type="Area2D"]
+[node name="Switch" type="Node2D"]
 script = ExtResource("1_pf3no")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_h8e6w")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="TrainCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrainCollision"]
 shape = SubResource("RectangleShape2D_b53p7")
+
+[node name="MouseCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseCollision"]
+shape = SubResource("RectangleShape2D_bp3xh")
+
+[connection signal="input_event" from="MouseCollision" to="." method="_on_mouse_collision_input_event"]
