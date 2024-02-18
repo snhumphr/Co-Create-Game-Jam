@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://resources/song/music_test.gd" id="1_rxkwb"]
 [ext_resource type="Script" path="res://resources/music_change.gd" id="2_wdw5m"]
-[ext_resource type="PackedScene" uid="uid://b0rjyyw8ukhom" path="res://music_player.tscn" id="3_5v66g"]
+[ext_resource type="PackedScene" uid="uid://dadj32lnhyq2x" path="res://music_player.tscn" id="3_5v66g"]
 
 [sub_resource type="Resource" id="Resource_22hs0"]
 script = ExtResource("2_wdw5m")

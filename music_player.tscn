@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0rjyyw8ukhom"]
+[gd_scene load_steps=12 format=3 uid="uid://dadj32lnhyq2x"]
 
 [ext_resource type="Script" path="res://music_player.gd" id="1_x3b2p"]
 [ext_resource type="AudioStream" uid="uid://3rrmhqmqpm85" path="res://resources/song/Song_Bass.wav" id="2_7vr5e"]

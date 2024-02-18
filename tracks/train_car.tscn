@@ -41,6 +41,8 @@ shape = SubResource("RectangleShape2D_u7d6r")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="UI" type="HBoxContainer" parent="."]
+z_index = 999
+z_as_relative = false
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = -111.5
