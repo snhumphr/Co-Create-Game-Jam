@@ -3,6 +3,17 @@ extends Control
 var events_dict = {}
 var counter = 50
 
+var train_max_hp = 3
+var train_hp = 3
+
+var train_speed = 200.0
+
+var ingredients_dict = {
+	"First": false,
+	"Second": false,
+	"Third": false
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -39,7 +50,29 @@ func display_choice(event: Event):
 	
 func apply_effect(effect: GlobalDataSingle.Effect):
 	
+	var keys = ingredients_dict.keys()
+	
 	match effect:
+		GlobalDataSingle.Effect.damageTrain:
+			change_train_hp(-1)
+			if train_hp == 0:
+				pass #TODO: End the game
+		GlobalDataSingle.Effect.repairTrain:
+			if train_hp < train_max_hp:
+				change_train_hp(1)
+		GlobalDataSingle.Effect.collectFirstIngredient:
+			ingredients_dict[keys[0]] = true
+		GlobalDataSingle.Effect.collectSecondIngredient:
+			ingredients_dict[keys[1]] = true
+		GlobalDataSingle.Effect.collectThirdIngredient:
+			ingredients_dict[keys[2]] = true
+		GlobalDataSingle.Effect.collectRandomIngredient:
+			var pick_array = []
+			for key in keys:
+				if not ingredients_dict[key]:
+					pick_array.append(key)
+			if pick_array.length > 0:
+				ingredients_dict[pick_array.pick_random()] = true
 		_:
 			printerr("Effect not recognized: " + str(effect))
 	
@@ -59,3 +92,8 @@ func _on_choices_item_activated(index: int, event: Event):
 	elif false:
 		counter +=1
 		display_choice(events_dict[counter])
+
+func change_train_hp(change: int):
+	train_hp += change
+	var hp_bar = self.get_node("UI/ProgressBar")
+	hp_bar.set_value(train_hp)
