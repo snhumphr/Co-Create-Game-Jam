@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Game Jam"
+config/name="Night Rail"
+config/description="Doom trails slowly behind you"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+config/icon="res://nightrail_icon.png"
 
 [autoload]
 
