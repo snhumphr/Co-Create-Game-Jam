@@ -65,6 +65,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_3r2fk")
 
 [node name="UI" type="HBoxContainer" parent="."]
@@ -73,6 +74,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 27.0
 grow_horizontal = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="UI"]
@@ -89,7 +91,6 @@ step = 1.0
 value = 3.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_guxt1")
 layout_mode = 1
 anchors_preset = 15
@@ -97,3 +98,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2

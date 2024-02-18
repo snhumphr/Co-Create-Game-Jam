@@ -9,7 +9,7 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7d6r"]
 size = Vector2(16, 16)
 
-[node name="TrainCar" type="CharacterBody2D"]
+[node name="TrainCar" type="CharacterBody2D" groups=["entities", "train"]]
 position = Vector2(416, 480)
 script = ExtResource("1_1ka1h")
 metadata/_edit_group_ = true

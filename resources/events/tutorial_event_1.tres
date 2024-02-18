@@ -8,10 +8,17 @@ script = ExtResource("1_0v0cf")
 next_event_id = -1
 text = "I understand"
 effect_list = Array[int]([])
+result_text = ""
+upgrade = 0
+requires_upgrade = false
 
 [resource]
 script = ExtResource("2_7n23l")
 id = 1
 name = "How to Play"
 description = "press button to make train go"
+random_event = false
+event_seen = false
+good = false
+bad = false
 choice_list = Array[ExtResource("1_0v0cf")]([SubResource("Resource_fnlbb")])

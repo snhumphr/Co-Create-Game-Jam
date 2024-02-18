@@ -8,6 +8,7 @@ script = ExtResource("1_1g3uw")
 next_event_id = 1
 text = "You will not fail"
 effect_list = Array[int]([])
+result_text = ""
 upgrade = 0
 requires_upgrade = false
 
@@ -25,6 +26,8 @@ You, and your train, are to collect the ingredients for the great elixir, and re
 
 A dangerous journey, through baneful fog and ill-kept rail, but success will earn you great renown. But if you fail... [color=red]His[/color] wrath will be considerable.
 "
+random_event = false
+event_seen = false
 good = false
 bad = false
 choice_list = Array[ExtResource("1_1g3uw")]([SubResource("Resource_fnlbb")])

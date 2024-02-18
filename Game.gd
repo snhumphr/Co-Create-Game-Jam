@@ -43,7 +43,14 @@ func _ready():
 
 	#print(upgrade_dict)
 
-	display_choice(events_dict[50])
+	#display_choice(events_dict[50])
+	
+	var scene = load("res://tracks/tracks.tscn")
+	var instance = scene.instantiate()
+	self.add_child(instance)
+	
+	var train = get_tree().get_nodes_in_group("train")[0]
+	train.trigger_random_event.connect(_on_trigger_random_event)
 
 func load_events(path: String, dict: Dictionary):
 	var dir = DirAccess.open(path)
@@ -63,6 +70,8 @@ func load_events(path: String, dict: Dictionary):
 		printerr("An error occurred when trying to access the path.")
 
 func display_choice(event: Event):
+
+	get_tree().call_group("entities", "pause")
 
 	var scene = load("res://choice.tscn")
 	var instance = scene.instantiate()
@@ -173,6 +182,22 @@ func _on_choices_item_activated(index: int, event: Event):
 	elif testing_events:
 		counter += 1
 		display_choice(events_dict[counter])
+	else:
+		get_tree().call_group("entities", "unpause")
+
+func _on_trigger_random_event():
+	
+	var possible_events = []
+	
+	for key in events_dict.keys():
+		var event = events_dict[key]
+		if event.random_event and not event.event_seen:
+			possible_events.append(key)
+	
+	var chosen_event = events_dict[possible_events.pick_random()]
+	events_dict[chosen_event.id].event_seen = true
+	
+	display_choice(chosen_event)
 
 func change_train_hp(change: int):
 	train_hp += change

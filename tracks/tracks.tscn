@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkrr2tw467qli"]
+[gd_scene load_steps=17 format=3 uid="uid://bkrr2tw467qli"]
 
 [ext_resource type="Texture2D" uid="uid://bg2ico3dcolov" path="res://resources/tilemap_packed.png" id="1_jpx8d"]
 [ext_resource type="PackedScene" uid="uid://b8ptgdjo855n0" path="res://tracks/switch.tscn" id="3_4q3ro"]
 [ext_resource type="PackedScene" uid="uid://ciilgxbyqticn" path="res://tracks/train_car.tscn" id="3_gvfsf"]
+[ext_resource type="PackedScene" uid="uid://b08j51pfpnnun" path="res://tracks/event.tscn" id="3_y1c0c"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1jmkn"]
 vertices = PackedVector2Array(561, -173, 561, -13, 529, -13, 529, -141, 465, -173, 465, -141, 689, 371, 689, 499, 657, 467, 657, 243, 337, 499, 369, 467, 337, 211, 369, 243, 529, 211, 529, 83, 561, 83, 561, 211, 689, 211, 689, 339, 1009, 371, 977, 339, 1009, 19, 977, 51, 593, 19, 593, 51)
@@ -467,8 +468,9 @@ texture_region_size = Vector2i(64, 64)
 11:10/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_vgo2h"]
-resource_name = "Switches"
+resource_name = "Special"
 scenes/3/scene = ExtResource("3_4q3ro")
+scenes/4/scene = ExtResource("3_y1c0c")
 
 [sub_resource type="TileSet" id="TileSet_jmr65"]
 tile_size = Vector2i(64, 64)
@@ -488,6 +490,6 @@ position = Vector2(1, 3)
 tile_set = SubResource("TileSet_jmr65")
 format = 2
 layer_0/tile_data = PackedInt32Array(458759, 655360, 7, 458758, 655360, 7, 458757, 589824, 7, 393221, 589824, 6, 327685, 589824, 6, 262149, 589824, 6, 10, 655360, 5, 11, 655360, 5, 12, 655360, 5, 13, 655360, 5, 14, 655360, 5, 15, 720896, 5, 65551, 720896, 6, 131087, 720896, 6, 196623, 720896, 6, 262159, 720896, 6, 327695, 720896, 7, 327694, 655360, 7, 327693, 655360, 7, 262154, 720896, 6, 327690, 720896, 6, 393226, 720896, 6, 458762, 720896, 7, 458760, 655360, 7, 458761, 655360, 7, 196618, 720896, 5, 196617, 655360, 5, 196616, 655360, 5, 196615, 655360, 5, 196614, 655360, 5, 196613, 589824, 5, 131080, 589824, 6, 65544, 589824, 6, 9, 655360, 5, 327691, 655360, 7, 327692, 655360, 7, -196601, 655360, 5, -196600, 720896, 5, -131064, 589824, 6, -65528, 720896, 6, 8, 589824, 6, -196602, 655360, 5, -196603, 655360, 5)
-layer_1/tile_data = PackedInt32Array(8, 1, 196608, 196616, 1, 196608, 327690, 1, 196608)
+layer_1/tile_data = PackedInt32Array(8, 1, 196608, 196616, 1, 196608, 327690, 1, 196608, 196618, 1, 262144)
 
 [node name="TrainCar" parent="." instance=ExtResource("3_gvfsf")]

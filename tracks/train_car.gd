@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var map:RID = get_world_2d().navigation_map
 var movespeed:float = 200.0
 
+signal trigger_random_event
 
 func _ready():
 	call_deferred("wait_for_navserver")
@@ -70,9 +71,17 @@ func round_to_tile_size(point:Vector2) -> Vector2:
 func point_on_tracks(point:Vector2) -> bool:
 	return (NavigationServer2D.map_get_closest_point(map, point) - point).is_zero_approx()
 
+func pause():
+	self.process_mode = PROCESS_MODE_DISABLED
+	
+func unpause():
+	self.process_mode = PROCESS_MODE_INHERIT
 
 func _on_area_2d_area_entered(area):
 	if area.name == "TrainCollision":
 		var switch_point = area.get_parent().get_point(tile_size)
 		if point_on_tracks(switch_point):
 			agent.target_position = switch_point
+	elif area.name == "EventCollision":
+		area.queue_free()
+		emit_signal("trigger_random_event")
