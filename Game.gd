@@ -56,7 +56,7 @@ func _ready():
 	var train = get_tree().get_nodes_in_group("train")[0]
 	train.trigger_random_event.connect(_on_trigger_random_event)
 	train.trigger_major_event.connect(_on_trigger_major_event)
-	
+
 	display_choice(events_dict[0])
 
 func load_events(path: String, dict: Dictionary):
@@ -207,7 +207,7 @@ func _on_choices_item_activated(index: int, event: Event):
 		get_tree().call_group("entities", "unpause")
 
 func _on_trigger_major_event(type: String):
-	
+
 	match type:
 		"Honey":
 			pass
