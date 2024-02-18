@@ -5,6 +5,8 @@ var events_dict = {}
 var testing_events = false
 var counter = 50
 
+var music_player
+
 var train_max_hp = 3
 var train_hp = 3
 
@@ -42,15 +44,19 @@ func _ready():
 	load_events("res://resources/events", events_dict)
 
 	#print(upgrade_dict)
-
-	#display_choice(events_dict[50])
 	
 	var scene = load("res://tracks/tracks.tscn")
 	var instance = scene.instantiate()
 	self.add_child(instance)
 	
+	var music_player_template = load("res://music_player.tscn")
+	music_player = music_player_template.instantiate()
+	self.add_child(music_player)
+	
 	var train = get_tree().get_nodes_in_group("train")[0]
 	train.trigger_random_event.connect(_on_trigger_random_event)
+	
+	display_choice(events_dict[0])
 
 func load_events(path: String, dict: Dictionary):
 	var dir = DirAccess.open(path)
@@ -76,6 +82,17 @@ func display_choice(event: Event):
 	var scene = load("res://choice.tscn")
 	var instance = scene.instantiate()
 	self.add_child(instance)
+	
+	get_tree().get_screen_center_position()
+	
+	var music_change = MusicChange.new()
+	var goodness = 0.5
+	if event.bad:
+		goodness -= randf_range(0.1, 0.5)
+	if event.good:
+		goodness += randf_range(0.1, 0.5)
+	
+	music_player.receive_music_change(music_change)
 
 	var choices = instance.init(event, upgrade_dict)
 	choices.item_activated.connect(_on_choices_item_activated.bind(event))
