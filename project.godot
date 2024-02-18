@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalDataSingle="*res://global_data_single.gd"
+AudoAddUiAudio="*res://auto_add_ui_audio.gd"
 
 [display]
 
