@@ -36,4 +36,6 @@ description = "The track ahead is broken, fatigued rails snappped by overuse.
 Fixing the rail is possible, but would require materials taken from the train itself.
 
 Alternatively, you could try to find another way around through the rural rail network, burning through your fuel reserves"
+good = false
+bad = true
 choice_list = Array[ExtResource("1_l6ih1")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg"), SubResource("Resource_8dwp3")])

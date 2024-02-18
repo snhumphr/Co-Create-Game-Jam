@@ -36,4 +36,6 @@ description = "The rail station you stopped at is in the throes of a fleeting re
 As a direct emissary of the King, you could grant legitimacy to the rebels, in order to preserve the station for your return journey.
 
 Or, you could take the opportunity of the disorder to pilfer the rebels' stores."
+good = false
+bad = true
 choice_list = Array[ExtResource("1_80qww")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg"), SubResource("Resource_0ff2p")])

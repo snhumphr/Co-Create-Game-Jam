@@ -28,4 +28,6 @@ description = "A sharp-eyed member of the train crew has spotted a rare triple s
 The crew are beyond excited, and take it as a sign that your task is blessed.
 
 You could encourage this behaviour, or put a stop to it immediately."
+good = true
+bad = false
 choice_list = Array[ExtResource("1_aadec")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg")])

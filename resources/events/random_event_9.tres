@@ -34,4 +34,6 @@ name = "A beautiful day..."
 description = "The sky is, for once, clear and morale is surpassingly high amid the sunshine.
 
 You could take advantage of this high cheer among the crew to push the train farther, get some repairs done... or simply leave their good mood intact."
+good = true
+bad = false
 choice_list = Array[ExtResource("1_pxd6g")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg"), SubResource("Resource_7ub7e")])
