@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var agent:NavigationAgent2D = get_node("NavigationAgent2D")
-@onready var tile_size = get_node("../NavigationRegion2D/TileMap").tile_set.tile_size.x
+@onready var tile_size:float = get_node("../NavigationRegion2D/TileMap").tile_set.tile_size.x
 @onready var map:RID = get_world_2d().navigation_map
 var movespeed:float = 200.0
 
@@ -69,3 +69,10 @@ func round_to_tile_size(point:Vector2) -> Vector2:
 
 func point_on_tracks(point:Vector2) -> bool:
 	return (NavigationServer2D.map_get_closest_point(map, point) - point).is_zero_approx()
+
+
+func _on_area_2d_area_entered(area):
+	if area.name == "TrainCollision":
+		var switch_point = area.get_parent().get_point(tile_size)
+		if point_on_tracks(switch_point):
+			agent.target_position = switch_point

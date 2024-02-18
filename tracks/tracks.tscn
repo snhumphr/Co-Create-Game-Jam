@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkrr2tw467qli"]
+[gd_scene load_steps=15 format=3 uid="uid://bkrr2tw467qli"]
 
 [ext_resource type="Texture2D" uid="uid://bg2ico3dcolov" path="res://resources/tilemap_packed.png" id="1_jpx8d"]
+[ext_resource type="PackedScene" uid="uid://b8ptgdjo855n0" path="res://tracks/switch.tscn" id="3_4q3ro"]
 [ext_resource type="PackedScene" uid="uid://mgmmpdkejw6t" path="res://tracks/train_car.tscn" id="3_gvfsf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1jmkn"]
-vertices = PackedVector2Array(1014, 10, 1014, 374, 970, 330, 970, 54, 694, 374, 694, 330, 694, 502, 650, 458, 650, 246, 694, 202, 566, 202, 374, 246, 330, 502, 374, 458, 330, 202, 522, 202, 522, 10, 566, 54)
+vertices = PackedVector2Array(1008, 16, 1008, 368, 976, 336, 976, 48, 688, 368, 688, 336, 688, 496, 656, 464, 656, 240, 688, 208, 560, 208, 368, 240, 336, 496, 368, 464, 336, 208, 528, 208, 528, 16, 560, 48)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(4, 6, 7, 8), PackedInt32Array(5, 4, 8), PackedInt32Array(9, 5, 8), PackedInt32Array(10, 9, 8, 11), PackedInt32Array(7, 6, 12, 13), PackedInt32Array(13, 12, 14, 11), PackedInt32Array(11, 14, 15), PackedInt32Array(10, 11, 15), PackedInt32Array(16, 0, 3, 17), PackedInt32Array(15, 16, 17, 10)])
 agent_radius = 16.0
 
@@ -217,3 +218,10 @@ format = 2
 layer_0/tile_data = PackedInt32Array(458759, 655360, 7, 458758, 655360, 7, 458757, 589824, 7, 393221, 589824, 6, 327685, 589824, 6, 262149, 589824, 6, 10, 655360, 5, 11, 655360, 5, 12, 655360, 5, 13, 655360, 5, 14, 655360, 5, 15, 720896, 5, 65551, 720896, 6, 131087, 720896, 6, 196623, 720896, 6, 262159, 720896, 6, 327695, 720896, 7, 327694, 655360, 7, 327693, 655360, 7, 262154, 720896, 6, 327690, 720896, 6, 393226, 720896, 6, 458762, 720896, 7, 458760, 655360, 7, 458761, 655360, 7, 196618, 720896, 5, 196617, 655360, 5, 196616, 655360, 5, 196615, 655360, 5, 196614, 655360, 5, 196613, 589824, 5, 131080, 589824, 6, 65544, 589824, 6, 8, 589824, 5, 9, 655360, 5, 327691, 655360, 7, 327692, 655360, 7)
 
 [node name="TrainCar" parent="." instance=ExtResource("3_gvfsf")]
+
+[node name="Switch" parent="." instance=ExtResource("3_4q3ro")]
+position = Vector2(544, 224)
+
+[node name="Switch2" parent="." instance=ExtResource("3_4q3ro")]
+position = Vector2(672, 352)
+direction = 1
