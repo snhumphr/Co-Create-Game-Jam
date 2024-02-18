@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0rjyyw8ukhom"]
+[gd_scene load_steps=12 format=3 uid="uid://b0rjyyw8ukhom"]
 
 [ext_resource type="Script" path="res://music_player.gd" id="1_x3b2p"]
 [ext_resource type="AudioStream" uid="uid://3rrmhqmqpm85" path="res://resources/song/Song_Bass.wav" id="2_7vr5e"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://n8t1bmp46dxj" path="res://resources/song/Song_Claps.wav" id="5_gvkya"]
 [ext_resource type="AudioStream" uid="uid://jqaetii8xutk" path="res://resources/song/Song_Plucks.wav" id="6_msa2n"]
 [ext_resource type="AudioStream" uid="uid://c3in6237kpnu6" path="res://resources/song/Song_Banjo.wav" id="7_teilw"]
+[ext_resource type="AudioStream" uid="uid://7gr5ra6qvqu0" path="res://resources/song/Song_Eviljo.wav" id="8_6gyjl"]
 [ext_resource type="AudioStream" uid="uid://c4ht3deebhile" path="res://resources/song/Song_Chior.wav" id="8_7vaak"]
 [ext_resource type="AudioStream" uid="uid://5jgh41kllenr" path="res://resources/song/Song_Acoustic Guitar.wav" id="9_5ljn6"]
 [ext_resource type="AudioStream" uid="uid://bdperkj8flhmv" path="res://resources/song/Song_Piano.wav" id="10_s4qkm"]
@@ -38,6 +39,10 @@ bus = &"BGM"
 
 [node name="Banjo" type="AudioStreamPlayer" parent="Tracks"]
 stream = ExtResource("7_teilw")
+bus = &"BGM"
+
+[node name="Evil Banjo" type="AudioStreamPlayer" parent="Tracks"]
+stream = ExtResource("8_6gyjl")
 bus = &"BGM"
 
 [node name="Choir" type="AudioStreamPlayer" parent="Tracks"]
