@@ -477,7 +477,7 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_qhdjk")
 sources/1 = SubResource("TileSetScenesCollectionSource_vgo2h")
 
-[node name="TestTrack" type="Node2D"]
+[node name="Tracks" type="Node2D"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_1jmkn")
@@ -492,3 +492,17 @@ metadata/_edit_lock_ = true
 
 [node name="TrainCar" parent="." instance=ExtResource("3_gvfsf")]
 position = Vector2(32, 160)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

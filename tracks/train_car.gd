@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var agent:NavigationAgent2D = get_node("NavigationAgent2D")
 @onready var tile_size:float = get_node("../NavigationRegion2D/TileMap").tile_set.tile_size.x
 @onready var map:RID = get_world_2d().navigation_map
-var movespeed:float = 200.0
+var movespeed:float = 70.0
 
 signal trigger_random_event
 
@@ -73,7 +73,7 @@ func point_on_tracks(point:Vector2) -> bool:
 
 func pause():
 	self.process_mode = PROCESS_MODE_DISABLED
-	
+
 func unpause():
 	self.process_mode = PROCESS_MODE_INHERIT
 
