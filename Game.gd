@@ -1,5 +1,12 @@
 extends Control
 
+class_name Game
+
+# Signals for playing the damage sfx
+signal on_gained_hp
+signal on_die
+signal on_lost_hp
+
 var events_dict = {}
 
 var testing_events = false
@@ -238,3 +245,10 @@ func change_train_hp(change: int):
 	hp_bar.set_value(train_hp)
 	if train_hp == 0:
 		display_choice(events_dict[600])
+		on_die.emit()
+		
+	# Emit the right sfx signal
+	if change > 0:
+		on_gained_hp.emit()
+	elif change < 0:
+		on_lost_hp.emit()

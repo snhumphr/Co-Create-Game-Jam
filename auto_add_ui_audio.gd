@@ -35,6 +35,20 @@ func _on_node_added(node:Node) -> void:
 	if node is ItemList:
 		node.item_selected.connect(_play_hover_int)
 		node.item_activated.connect(_play_pressed_int)
+		
+	if node is Game:
+		node.on_die.connect(_on_die)
+		node.on_gained_hp.connect(_on_gained_hp)
+		node.on_lost_hp.connect(_on_lost_hp)
+		
+func _on_die():
+	var stream = playback.play_stream(preload('res://resources/sfx/die.ogg'), 0, 0, randf_range(0.9, 1.1))
+	
+func _on_gained_hp():
+	var stream = playback.play_stream(preload('res://resources/sfx/gain_hp.ogg'), 0, 0, randf_range(0.9, 1.1))
+	
+func _on_lost_hp():
+	var stream = playback.play_stream(preload('res://resources/sfx/lose_hp.ogg'), 0, 0, randf_range(0.9, 1.1))
 
 func _play_hover_int(i: int):
 	_play_hover()
@@ -44,11 +58,9 @@ func _play_pressed_int(i: int):
 
 func _play_hover() -> void:
 	var stream = playback.play_stream(preload('res://resources/sfx/switch.ogg'), 0, 0, randf_range(0.9, 1.1))
-	print("hover sfx")
 
 func _play_pressed() -> void:
 	var stream = playback.play_stream(preload('res://resources/sfx/select.ogg'), 0, 0, randf_range(0.9, 1.1))
-	print("pressed sfx")
 	
 func _play_value_changed(value: float) -> void:
 	#var real_value = value / 100.0
