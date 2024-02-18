@@ -83,7 +83,7 @@ func display_choice(event: Event):
 	var instance = scene.instantiate()
 	self.add_child(instance)
 	
-	get_tree().get_screen_center_position()
+	#get_tree().get_screen_center_position()
 	
 	var music_change = MusicChange.new()
 	var goodness = 0.5
