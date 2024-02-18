@@ -5,6 +5,8 @@ var events_dict = {}
 var testing_events = false
 var counter = 50
 
+var music_player
+
 var train_max_hp = 3
 var train_hp = 3
 
@@ -43,14 +45,18 @@ func _ready():
 
 	#print(upgrade_dict)
 
-	#display_choice(events_dict[50])
-	
 	var scene = load("res://tracks/tracks.tscn")
 	var instance = scene.instantiate()
 	self.add_child(instance)
-	
+
+	var music_player_template = load("res://music_player.tscn")
+	music_player = music_player_template.instantiate()
+	self.add_child(music_player)
+
 	var train = get_tree().get_nodes_in_group("train")[0]
 	train.trigger_random_event.connect(_on_trigger_random_event)
+
+	display_choice(events_dict[0])
 
 func load_events(path: String, dict: Dictionary):
 	var dir = DirAccess.open(path)
@@ -77,14 +83,26 @@ func display_choice(event: Event):
 	var instance = scene.instantiate()
 	self.add_child(instance)
 
+	#get_tree().get_screen_center_position()
+
+	var music_change = MusicChange.new()
+	var goodness = 0.5
+	if event.bad:
+		goodness -= randf_range(0.1, 0.5)
+	if event.good:
+		goodness += randf_range(0.1, 0.5)
+
+	music_player.receive_music_change(music_change)
+
 	var choices = instance.init(event, upgrade_dict)
 	choices.item_activated.connect(_on_choices_item_activated.bind(event))
-	
+
 func display_event_result(result_text: Array):
 
 	var scene = load("res://choice.tscn")
 	var instance = scene.instantiate()
-	self.add_child(instance)
+	var train = get_tree().get_nodes_in_group("train")[0]
+	train.add_child(instance)
 
 	var event = events_dict[999]
 	event.description = ""
@@ -106,7 +124,7 @@ func apply_effect(effect: GlobalDataSingle.Effect, upgrade: Choice.Upgrade):
 	match effect:
 		GlobalDataSingle.Effect.triggerHunter:
 			#TODO: if we don't have time to implement the snail, just apply slow
-			return apply_effect(GlobalDataSingle.Effect.slowTrain, upgrade) 
+			return apply_effect(GlobalDataSingle.Effect.slowTrain, upgrade)
 		GlobalDataSingle.Effect.speedTrain:
 			#TODO: Implement train slowing and speeding effects
 			return "[color=green]The train's speed increases![/color]"
@@ -186,22 +204,22 @@ func _on_choices_item_activated(index: int, event: Event):
 		get_tree().call_group("entities", "unpause")
 
 func _on_trigger_random_event():
-	
+
 	var possible_events = []
-	
+
 	for key in events_dict.keys():
 		var event = events_dict[key]
 		if event.random_event and not event.event_seen:
 			possible_events.append(key)
-	
+
 	var chosen_event = events_dict[possible_events.pick_random()]
 	#events_dict[chosen_event.id].event_seen = true
-	
+
 	display_choice(chosen_event)
 
 func change_train_hp(change: int):
 	train_hp += change
-	var hp_bar = self.get_node("UI/ProgressBar")
+	var hp_bar = get_tree().get_nodes_in_group("hp_bar")[0]
 	hp_bar.set_value(train_hp)
 	if train_hp == 0:
 		pass #TODO: End the game
