@@ -14,10 +14,23 @@ var ingredients_dict = {
 	"Third": false
 }
 
+var upgrade_dict = {
+	Choice.Upgrade.blank: true,
+	Choice.Upgrade.snailRepellant: false,
+	Choice.Upgrade.waterproofCoating: false,
+	Choice.Upgrade.kingsSigil: false,
+	Choice.Upgrade.fogPiercingTorch: false,
+	Choice.Upgrade.medicalCar: false,
+	Choice.Upgrade.highMorale: false
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	load_events("res://resources/events", events_dict)
+	
+	print(upgrade_dict)
+	
 	display_choice(events_dict[50])
 
 func load_events(path: String, dict: Dictionary):
@@ -45,18 +58,16 @@ func display_choice(event: Event):
 	
 	var event_list = []
 	
-	var choices = instance.init(event)
+	var choices = instance.init(event, upgrade_dict)
 	choices.item_activated.connect(_on_choices_item_activated.bind(event))
 	
-func apply_effect(effect: GlobalDataSingle.Effect):
+func apply_effect(effect: GlobalDataSingle.Effect, upgrade: Choice.Upgrade):
 	
 	var keys = ingredients_dict.keys()
 	
 	match effect:
 		GlobalDataSingle.Effect.damageTrain:
 			change_train_hp(-1)
-			if train_hp == 0:
-				pass #TODO: End the game
 		GlobalDataSingle.Effect.repairTrain:
 			if train_hp < train_max_hp:
 				change_train_hp(1)
@@ -73,6 +84,14 @@ func apply_effect(effect: GlobalDataSingle.Effect):
 					pick_array.append(key)
 			if pick_array.length > 0:
 				ingredients_dict[pick_array.pick_random()] = true
+		GlobalDataSingle.Effect.applyUpgrade:
+			upgrade_dict[upgrade] = true
+		GlobalDataSingle.Effect.applyRandomUpgrade:
+			var rng = randi_range(1, upgrade_dict.keys().size())
+			upgrade_dict[rng] = true
+		GlobalDataSingle.Effect.removeRandomUpgrade:
+			var rng = randi_range(1, upgrade_dict.keys().size())
+			upgrade_dict[rng] = false
 		_:
 			printerr("Effect not recognized: " + str(effect))
 	
@@ -85,7 +104,7 @@ func _on_choices_item_activated(index: int, event: Event):
 	var next_event_id = choice.next_event_id
 	
 	for effect in effect_list:
-		apply_effect(effect)
+		apply_effect(effect, choice.upgrade)
 		
 	if next_event_id > -1:
 		display_choice(events_dict[next_event_id])
@@ -97,3 +116,5 @@ func change_train_hp(change: int):
 	train_hp += change
 	var hp_bar = self.get_node("UI/ProgressBar")
 	hp_bar.set_value(train_hp)
+	if train_hp == 0:
+		pass #TODO: End the game

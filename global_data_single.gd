@@ -13,5 +13,8 @@ enum Effect {
 	loseFuel,
 	slowTrain,
 	speedTrain,
-	collectRandomIngredient
+	collectRandomIngredient,
+	applyUpgrade,
+	applyRandomUpgrade,
+	removeRandomUpgrade
 }

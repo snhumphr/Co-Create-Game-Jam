@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://be8mly21gqqd6"]
+[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://be8mly21gqqd6"]
 
 [ext_resource type="Script" path="res://choice.gd" id="1_2r78w"]
 [ext_resource type="Script" path="res://event.gd" id="1_vc1w3"]
@@ -8,12 +8,24 @@ script = ExtResource("1_2r78w")
 next_event_id = -1
 text = "Ford the river with your train"
 effect_list = Array[int]([3])
+upgrade = 0
+requires_upgrade = false
 
 [sub_resource type="Resource" id="Resource_wsmcg"]
 script = ExtResource("1_2r78w")
 next_event_id = -1
 text = "Go around the river, the slower way"
 effect_list = Array[int]([2])
+upgrade = 0
+requires_upgrade = false
+
+[sub_resource type="Resource" id="Resource_k8cek"]
+script = ExtResource("1_2r78w")
+next_event_id = -1
+text = "[Upgrade]Traverse the river"
+effect_list = Array[int]([])
+upgrade = 2
+requires_upgrade = true
 
 [resource]
 script = ExtResource("1_vc1w3")
@@ -24,4 +36,4 @@ description = "The track ahead of you has been overtaken by a raging river.
 You could pass through the water, trusting to your strong engines to bring you through... but surely not unscathed.
 
 Or you could navigate around the back roads, through the country, avoiding the river entirely. Although beware that delay is a danger all it's own."
-choice_list = Array[ExtResource("1_2r78w")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg")])
+choice_list = Array[ExtResource("1_2r78w")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg"), SubResource("Resource_k8cek")])

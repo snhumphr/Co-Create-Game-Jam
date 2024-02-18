@@ -1,6 +1,6 @@
 extends PanelContainer
 
-func init(event: Event):
+func init(event: Event, upgrade_dict: Dictionary):
 	
 	var description = self.get_node("layout/description")
 	
@@ -11,6 +11,8 @@ func init(event: Event):
 	var choices = self.get_node("layout/choices")
 	
 	for choice in event.choice_list:
-		choices.add_item(choice.text)
+		print(upgrade_dict[choice.upgrade])
+		if not choice.requires_upgrade or upgrade_dict[choice.upgrade]:
+			choices.add_item(choice.text)
 		
 	return choices
