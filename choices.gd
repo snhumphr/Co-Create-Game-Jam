@@ -1,4 +1,5 @@
 extends PanelContainer
+class_name ChoicePanel
 
 func init(event: Event, upgrade_dict: Dictionary):
 

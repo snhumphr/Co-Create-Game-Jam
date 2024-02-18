@@ -41,6 +41,9 @@ func _on_node_added(node:Node) -> void:
 		node.on_gained_hp.connect(_on_gained_hp)
 		node.on_lost_hp.connect(_on_lost_hp)
 		
+	if node is ChoicePanel:
+		_on_choice()
+		
 func _on_die():
 	var stream = playback.play_stream(preload('res://resources/sfx/die.ogg'), 0, 0, randf_range(0.9, 1.1))
 	
@@ -49,6 +52,9 @@ func _on_gained_hp():
 	
 func _on_lost_hp():
 	var stream = playback.play_stream(preload('res://resources/sfx/lose_hp.ogg'), 0, 0, randf_range(0.9, 1.1))
+
+func _on_choice():
+	var stream = playback.play_stream(preload('res://resources/sfx/choice.ogg'), 0, 0, randf_range(0.9, 1.1))
 
 func _play_hover_int(i: int):
 	_play_hover()
