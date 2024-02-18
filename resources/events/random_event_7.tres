@@ -8,7 +8,7 @@ script = ExtResource("1_qengj")
 next_event_id = -1
 text = "Accept the ingredient"
 effect_list = Array[int]([3])
-result_text = "Thanking the emissary, you take on the ingredient. However, under examination by the on-board alchemist, the powder exploded, damaging the train. A pox on frauds and saboteurs."
+result_text = "Thanking the emissary, you take on the ingredient. However, under examination by the on-board alchemist, the powder exploded, damaging the train. Wishing a pox on frauds and saboteurs, you continue your journey."
 upgrade = 0
 requires_upgrade = false
 
