@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://dyvyi54swla0w"]
+
+[ext_resource type="Script" path="res://choice.gd" id="1_mxgbj"]
+[ext_resource type="Script" path="res://event.gd" id="2_m1ayr"]
+
+[sub_resource type="Resource" id="Resource_w5r04"]
+script = ExtResource("1_mxgbj")
+next_event_id = -1
+text = "Continue through the storm"
+effect_list = Array[int]([11, 3])
+
+[sub_resource type="Resource" id="Resource_wsmcg"]
+script = ExtResource("1_mxgbj")
+next_event_id = -1
+text = "Slow down and stay safe"
+effect_list = Array[int]([10])
+
+[resource]
+script = ExtResource("2_m1ayr")
+id = 59
+name = "A storm..."
+description = "Thunder rumbles in the skies, and rain beats down on the train's metal roof. The weather is perilous.
+
+The tracks are slippery, a dangerous state to be in considering their abysmal maintenance record. Contiuing would be reckless, but undeniably faster.
+
+Or you could slow down, even though it risks wasting valuable time."
+choice_list = Array[ExtResource("1_mxgbj")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg")])

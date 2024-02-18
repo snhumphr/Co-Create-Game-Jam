@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://dfjt51cbvox0q"]
+
+[ext_resource type="Script" path="res://choice.gd" id="1_pxd6g"]
+[ext_resource type="Script" path="res://event.gd" id="2_2xs27"]
+
+[sub_resource type="Resource" id="Resource_w5r04"]
+script = ExtResource("1_pxd6g")
+next_event_id = -1
+text = "Push the train faster"
+effect_list = Array[int]([11])
+
+[sub_resource type="Resource" id="Resource_wsmcg"]
+script = ExtResource("1_pxd6g")
+next_event_id = -1
+text = "Get some repairs done"
+effect_list = Array[int]([4])
+
+[sub_resource type="Resource" id="Resource_7ub7e"]
+script = ExtResource("1_pxd6g")
+next_event_id = -1
+text = "Let the crew enjoy themselves"
+effect_list = Array[int]([])
+
+[resource]
+script = ExtResource("2_2xs27")
+id = 58
+name = "A beautiful day..."
+description = "The sky is, for once, clear and morale is surpassingly high amid the sunshine.
+
+You could take advantage of this high cheer among the crew to push the train farther, get some repairs done... or simply leave their good mood intact."
+choice_list = Array[ExtResource("1_pxd6g")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg"), SubResource("Resource_7ub7e")])

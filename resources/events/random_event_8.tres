@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://b6gfpgebppyhb"]
+
+[ext_resource type="Script" path="res://choice.gd" id="1_aadec"]
+[ext_resource type="Script" path="res://event.gd" id="2_jb6u2"]
+
+[sub_resource type="Resource" id="Resource_w5r04"]
+script = ExtResource("1_aadec")
+next_event_id = -1
+text = "Tell them that Fate is indifferent"
+effect_list = Array[int]([])
+
+[sub_resource type="Resource" id="Resource_wsmcg"]
+script = ExtResource("1_aadec")
+next_event_id = -1
+text = "Tell them that Providence smiles on you"
+effect_list = Array[int]([])
+
+[resource]
+script = ExtResource("2_jb6u2")
+id = 57
+name = "An omen..."
+description = "A sharp-eyed member of the train crew has spotted a rare triple sunrise through the foggy sky.
+
+The crew are beyond excited, and take it as a sign that your task is blessed.
+
+You could encourage this behaviour, or put a stop to it immediately."
+choice_list = Array[ExtResource("1_aadec")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg")])

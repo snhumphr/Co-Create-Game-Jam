@@ -1,12 +1,13 @@
 extends Control
 
 var events_dict = {}
+var counter = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	load_events("res://resources/events", events_dict)
-	display_choice(events_dict[0])
+	display_choice(events_dict[50])
 
 func load_events(path: String, dict: Dictionary):
 	var dir = DirAccess.open(path)
@@ -55,3 +56,6 @@ func _on_choices_item_activated(index: int, event: Event):
 		
 	if next_event_id > -1:
 		display_choice(events_dict[next_event_id])
+	elif false:
+		counter +=1
+		display_choice(events_dict[counter])
