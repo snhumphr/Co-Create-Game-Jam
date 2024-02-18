@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://wetmovcstyof"]
+
+[ext_resource type="Script" path="res://choice.gd" id="1_s4itc"]
+[ext_resource type="Script" path="res://event.gd" id="2_qyclx"]
+
+[sub_resource type="Resource" id="Resource_fnlbb"]
+script = ExtResource("1_s4itc")
+next_event_id = -1
+text = "Ram the crystal with your train"
+effect_list = Array[int]([3, 7])
+result_text = "The train shudders and groans at the impact... but a chunk of the Crystal is knocked loose."
+upgrade = 0
+requires_upgrade = false
+
+[sub_resource type="Resource" id="Resource_sy5lq"]
+script = ExtResource("1_s4itc")
+next_event_id = -1
+text = "[Upgrade]Chip at with the rail layer"
+effect_list = Array[int]([7, 16])
+result_text = "The rail layer, stripped of all safety precautions, is able to chip away a sizable chunk of the Crystal."
+upgrade = 4
+requires_upgrade = true
+
+[resource]
+script = ExtResource("2_qyclx")
+id = 502
+name = "The Crystal"
+description = "Your train pulls up near the ancient Crystal, said to contain the Prism, one of the ingredients needed for immortality.
+
+The Crystal is surpassingly hard, and it is said to be impossible to break off a piece."
+random_event = false
+event_seen = false
+good = true
+bad = false
+choice_list = Array[ExtResource("1_s4itc")]([SubResource("Resource_fnlbb"), SubResource("Resource_sy5lq")])
