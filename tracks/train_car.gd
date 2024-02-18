@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@onready var agent:NavigationAgent2D = get_node("NavigationAgent2D")
+@onready var anim:AnimatedSprite2D = $AnimatedSprite2D
+@onready var agent:NavigationAgent2D = $NavigationAgent2D
 @onready var tile_size:float = get_node("../NavigationRegion2D/TileMap").tile_set.tile_size.x
 @onready var map:RID = get_world_2d().navigation_map
 var movespeed:float = 70.0
@@ -22,10 +23,21 @@ func wait_for_navserver():
 
 
 func _physics_process(delta):
+	var dir = velocity.normalized().round()
+
+	match dir:
+		Vector2(1, 0):
+			anim.play("right")
+		Vector2(-1, 0):
+			anim.play("left")
+		Vector2(0, 1):
+			anim.play("down")
+		Vector2(0, -1):
+			anim.play("up")
+
 	if agent.is_navigation_finished() and velocity != Vector2():
 		# try to keep going straight, or turn left or right
 		var next_point = global_position
-		var dir = velocity.normalized().round()
 		match dir:
 			Vector2(1, 0):
 				next_point = Vector2(next_point.x + tile_size, next_point.y)
@@ -58,7 +70,7 @@ func _physics_process(delta):
 				elif valid2:
 					agent.target_position = point2
 			else:
-				assert(false)
+				pass #assert(false)
 		else:
 			# continue straight
 			agent.target_position = next_point
