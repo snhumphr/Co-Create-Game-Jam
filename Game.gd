@@ -56,7 +56,7 @@ func _ready():
 	var train = get_tree().get_nodes_in_group("train")[0]
 	train.trigger_random_event.connect(_on_trigger_random_event)
 	
-	#display_choice(events_dict[0])
+	display_choice(events_dict[0])
 
 func load_events(path: String, dict: Dictionary):
 	var dir = DirAccess.open(path)
