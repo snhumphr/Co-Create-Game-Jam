@@ -10,16 +10,16 @@ light_mode = 2
 
 [node name="choice" type="PanelContainer" groups=["event"]]
 z_index = 99
-offset_left = -250.0
-offset_top = -125.0
-offset_right = 250.0
-offset_bottom = 375.0
+offset_right = 500.0
+offset_bottom = 500.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 script = ExtResource("1_0wnxu")
 
 [node name="layout" type="Control" parent="."]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="description" type="RichTextLabel" parent="layout"]
 material = SubResource("CanvasItemMaterial_kb0sh")
@@ -28,6 +28,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.8
 grow_horizontal = 2
+mouse_filter = 2
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
@@ -40,5 +41,8 @@ anchor_top = 0.8
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
+mouse_filter = 1
+allow_reselect = true
+allow_rmb_select = true
 
 [connection signal="item_activated" from="layout/choices" to="." method="_on_choices_item_activated"]

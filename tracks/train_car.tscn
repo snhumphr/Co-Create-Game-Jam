@@ -437,6 +437,7 @@ text = "Train Integrity: "
 [node name="ProgressBar" type="ProgressBar" parent="UI" groups=["hp_bar"]]
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_m24xm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_cafgb")
 max_value = 3.0

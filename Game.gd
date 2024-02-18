@@ -89,9 +89,12 @@ func display_choice(event: Event):
 
 	var scene = load("res://choice.tscn")
 	var instance = scene.instantiate()
+	var train = get_tree().get_nodes_in_group("train")[0]
+	
 	self.add_child(instance)
-
-	#get_tree().get_screen_center_position()
+	
+	var pos = train.get_global_position() - (Vector2.ONE * 250)
+	instance.set_global_position(pos)
 
 	var music_change = MusicChange.new()
 	var goodness = 0.5
@@ -110,7 +113,11 @@ func display_event_result(result_text: Array):
 	var scene = load("res://choice.tscn")
 	var instance = scene.instantiate()
 	var train = get_tree().get_nodes_in_group("train")[0]
-	train.add_child(instance)
+	
+	self.add_child(instance)
+	
+	var pos = train.get_global_position() - (Vector2.ONE * 250)
+	instance.set_global_position(pos)
 
 	var event = events_dict[999]
 	event.description = ""
