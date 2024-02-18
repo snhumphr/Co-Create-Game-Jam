@@ -26,11 +26,11 @@ var upgrade_dict = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+
 	load_events("res://resources/events", events_dict)
-	
+
 	print(upgrade_dict)
-	
+
 	display_choice(events_dict[50])
 
 func load_events(path: String, dict: Dictionary):
@@ -51,20 +51,20 @@ func load_events(path: String, dict: Dictionary):
 		printerr("An error occurred when trying to access the path.")
 
 func display_choice(event: Event):
-	
+
 	var scene = load("res://choice.tscn")
 	var instance = scene.instantiate()
 	self.add_child(instance)
-	
+
 	var event_list = []
-	
+
 	var choices = instance.init(event, upgrade_dict)
 	choices.item_activated.connect(_on_choices_item_activated.bind(event))
-	
+
 func apply_effect(effect: GlobalDataSingle.Effect, upgrade: Choice.Upgrade):
-	
+
 	var keys = ingredients_dict.keys()
-	
+
 	match effect:
 		GlobalDataSingle.Effect.damageTrain:
 			change_train_hp(-1)
@@ -97,18 +97,18 @@ func apply_effect(effect: GlobalDataSingle.Effect, upgrade: Choice.Upgrade):
 			upgrade_dict[rng] = false
 		_:
 			printerr("Effect not recognized: " + str(effect))
-	
+
 func _on_choices_item_activated(index: int, event: Event):
-	
+
 	get_tree().call_group("event", "queue_free")
-	
+
 	var choice = event.choice_list[index]
 	var effect_list = choice.effect_list
 	var next_event_id = choice.next_event_id
-	
+
 	for effect in effect_list:
 		apply_effect(effect, choice.upgrade)
-		
+
 	if next_event_id > -1:
 		display_choice(events_dict[next_event_id])
 	elif false:
