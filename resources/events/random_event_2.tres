@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://cc5phvt7hydud"]
+[gd_resource type="Resource" script_class="Event" load_steps=6 format=3 uid="uid://cc5phvt7hydud"]
 
 [ext_resource type="Script" path="res://choice.gd" id="1_80qww"]
 [ext_resource type="Script" path="res://event.gd" id="2_pvtm8"]
@@ -8,12 +8,24 @@ script = ExtResource("1_80qww")
 next_event_id = -1
 text = "Settle the conflict, preserve the station"
 effect_list = Array[int]([])
+upgrade = 0
+requires_upgrade = false
 
 [sub_resource type="Resource" id="Resource_wsmcg"]
 script = ExtResource("1_80qww")
 next_event_id = -1
 text = "Rob the rebels and depart"
 effect_list = Array[int]([0, 8])
+upgrade = 0
+requires_upgrade = false
+
+[sub_resource type="Resource" id="Resource_0ff2p"]
+script = ExtResource("1_80qww")
+next_event_id = -1
+text = "[Upgrade]Cow the rebels with the king's sigil"
+effect_list = Array[int]([])
+upgrade = 3
+requires_upgrade = true
 
 [resource]
 script = ExtResource("2_pvtm8")
@@ -24,4 +36,4 @@ description = "The rail station you stopped at is in the throes of a fleeting re
 As a direct emissary of the King, you could grant legitimacy to the rebels, in order to preserve the station for your return journey.
 
 Or, you could take the opportunity of the disorder to pilfer the rebels' stores."
-choice_list = Array[ExtResource("1_80qww")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg")])
+choice_list = Array[ExtResource("1_80qww")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg"), SubResource("Resource_0ff2p")])
