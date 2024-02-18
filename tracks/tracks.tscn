@@ -613,6 +613,27 @@ texture = ExtResource("3_st25y")
 region_enabled = true
 region_rect = Rect2(192, 0, 320, 256)
 
+[node name="Pyramid" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-32, -1568)
+texture = ExtResource("3_st25y")
+region_enabled = true
+region_rect = Rect2(0, 256, 192, 192)
+
+[node name="Crystal" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-2336, 864)
+texture = ExtResource("3_st25y")
+region_enabled = true
+region_rect = Rect2(192, 256, 192, 192)
+
+[node name="Fountain" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(2464, 864)
+texture = ExtResource("3_st25y")
+region_enabled = true
+region_rect = Rect2(384, 256, 192, 192)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_1jmkn")
 enabled = false
