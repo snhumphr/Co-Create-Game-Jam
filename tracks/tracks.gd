@@ -20,11 +20,10 @@ func wait_for_navserver():
 
 
 func _physics_process(delta):
-	if agent.is_navigation_finished() and train.velocity > Vector2():
+	if agent.is_navigation_finished() and train.velocity != Vector2():
 		# try to keep going straight, or turn left or right
 		var next_point = train.global_position
 		var dir = train.velocity.normalized().round()
-
 		match dir:
 			Vector2(1, 0):
 				next_point = Vector2(next_point.x + tile_size, next_point.y)
@@ -34,12 +33,9 @@ func _physics_process(delta):
 				next_point = Vector2(next_point.x, next_point.y + tile_size)
 			Vector2(0, -1):
 				next_point = Vector2(next_point.x, next_point.y - tile_size)
-		var t = next_point
 		next_point = round_to_tile_size(next_point)
-		print(train.velocity, train.velocity.normalized(), dir, train.global_position, t, next_point)
 		if not point_on_tracks(next_point):
-			#print(next_point)
-			# assuming we hit a corner, we need to turn!
+			# assuming we hit a corner -- we need to turn!
 			var point1
 			var point2
 			match dir:
@@ -59,10 +55,7 @@ func _physics_process(delta):
 					agent.target_position = point1
 				elif valid2:
 					agent.target_position = point2
-				print("   ", point1, valid1, point2, valid2, " ", agent.target_position, dir)
-
 			else:
-				#print(point1, valid1, point2, valid2, " ", agent.target_position, dir)
 				assert(false)
 		else:
 			# continue straight
