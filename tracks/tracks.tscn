@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bg2ico3dcolov" path="res://resources/tilemap_packed.png" id="1_jpx8d"]
 [ext_resource type="PackedScene" uid="uid://b8ptgdjo855n0" path="res://tracks/switch.tscn" id="3_4q3ro"]
-[ext_resource type="PackedScene" uid="uid://ciilgxbyqticn" path="res://tracks/train_car.tscn" id="3_gvfsf"]
+[ext_resource type="PackedScene" path="res://tracks/train_car.tscn" id="3_gvfsf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1jmkn"]
 vertices = PackedVector2Array(561, -173, 561, -13, 529, -13, 529, -141, 465, -173, 465, -141, 689, 371, 689, 499, 657, 467, 657, 243, 337, 499, 369, 467, 337, 211, 369, 243, 529, 211, 529, 83, 561, 83, 561, 211, 689, 211, 689, 339, 1009, 371, 977, 339, 1009, 19, 977, 51, 593, 19, 593, 51)
