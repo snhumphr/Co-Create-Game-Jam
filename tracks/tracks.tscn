@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://bg2ico3dcolov" path="res://resources/tilemap_packed.png" id="1_jpx8d"]
 [ext_resource type="PackedScene" uid="uid://b8ptgdjo855n0" path="res://tracks/switch.tscn" id="3_4q3ro"]
-[ext_resource type="PackedScene" uid="uid://mgmmpdkejw6t" path="res://tracks/train_car.tscn" id="3_gvfsf"]
+[ext_resource type="PackedScene" path="res://tracks/train_car.tscn" id="3_gvfsf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1jmkn"]
 vertices = PackedVector2Array(1008, 16, 1008, 368, 976, 336, 976, 48, 688, 368, 688, 336, 688, 496, 656, 464, 656, 240, 688, 208, 560, 208, 368, 240, 336, 496, 368, 464, 336, 208, 528, 208, 528, 16, 560, 48)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(4, 6, 7, 8), PackedInt32Array(5, 4, 8), PackedInt32Array(9, 5, 8), PackedInt32Array(10, 9, 8, 11), PackedInt32Array(7, 6, 12, 13), PackedInt32Array(13, 12, 14, 11), PackedInt32Array(11, 14, 15), PackedInt32Array(10, 11, 15), PackedInt32Array(16, 0, 3, 17), PackedInt32Array(15, 16, 17, 10)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 16.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_73isc"]
