@@ -29,5 +29,5 @@ A dangerous journey, through baneful fog and ill-kept rail, but success will ear
 random_event = false
 event_seen = false
 good = false
-bad = true
+bad = false
 choice_list = Array[ExtResource("1_1g3uw")]([SubResource("Resource_fnlbb")])

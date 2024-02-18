@@ -56,7 +56,7 @@ func _ready():
 	var train = get_tree().get_nodes_in_group("train")[0]
 	train.trigger_random_event.connect(_on_trigger_random_event)
 	
-	display_choice(events_dict[0])
+	#display_choice(events_dict[0])
 
 func load_events(path: String, dict: Dictionary):
 	var dir = DirAccess.open(path)
@@ -101,7 +101,8 @@ func display_event_result(result_text: Array):
 
 	var scene = load("res://choice.tscn")
 	var instance = scene.instantiate()
-	self.add_child(instance)
+	var train = get_tree().get_nodes_in_group("train")[0]
+	train.add_child(instance)
 
 	var event = events_dict[999]
 	event.description = ""
@@ -218,7 +219,7 @@ func _on_trigger_random_event():
 
 func change_train_hp(change: int):
 	train_hp += change
-	var hp_bar = self.get_node("UI/ProgressBar")
+	var hp_bar = get_tree().get_nodes_in_group("hp_bar")[0]
 	hp_bar.set_value(train_hp)
 	if train_hp == 0:
 		pass #TODO: End the game

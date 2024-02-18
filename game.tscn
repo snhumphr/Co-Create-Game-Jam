@@ -1,12 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://yrv8myggdj1h"]
+[gd_scene load_steps=4 format=3 uid="uid://yrv8myggdj1h"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_3r2fk"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tv7ig"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7jar"]
-bg_color = Color(0.792157, 0, 0, 1)
 
 [sub_resource type="Shader" id="Shader_2ycfe"]
 code = "shader_type canvas_item;
@@ -67,28 +61,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_3r2fk")
-
-[node name="UI" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 27.0
-grow_horizontal = 2
-mouse_filter = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="UI"]
-layout_mode = 2
-text = "Train Integrity: "
-
-[node name="ProgressBar" type="ProgressBar" parent="UI"]
-custom_minimum_size = Vector2(100, 30)
-layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_tv7ig")
-theme_override_styles/fill = SubResource("StyleBoxFlat_x7jar")
-max_value = 3.0
-step = 1.0
-value = 3.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_guxt1")
