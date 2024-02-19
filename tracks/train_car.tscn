@@ -452,8 +452,8 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_m24xm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_cafgb")
-max_value = 3.0
+max_value = 4.0
 step = 1.0
-value = 3.0
+value = 4.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

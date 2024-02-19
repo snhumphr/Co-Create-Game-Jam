@@ -42,6 +42,8 @@ Unfortunately, the lands you are passing through are barren and dry, and the wat
 If you ration the water, the crew will take longer to recover, greatly affecting their morale.
 
 But if you open the train's stores without restraint, then your fuel reserves will be dangerously low, slowing the train."
+random_event = true
+event_seen = false
 good = false
 bad = true
 choice_list = Array[ExtResource("1_nfu6d")]([SubResource("Resource_w5r04"), SubResource("Resource_wsmcg"), SubResource("Resource_mt5of")])
