@@ -97,12 +97,19 @@ func display_choice(event: Event):
 	instance.set_global_position(pos)
 
 	var music_change = MusicChange.new()
-	var goodness = 0.5
+	var goodness = 0.0
+	var energy = 0.0
 	if event.bad:
 		goodness -= randf_range(0.1, 0.5)
 	if event.good:
 		goodness += randf_range(0.1, 0.5)
-
+	if train_hp < 2:
+		energy += 0.2
+	if train_hp > 2:
+		energy -= 0.2
+		
+	music_change.goodness = goodness
+	music_change.energy = energy
 	music_change.is_additive = true
 	music_player.receive_music_change(music_change)
 
