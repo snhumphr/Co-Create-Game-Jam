@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var map:RID = get_world_2d().navigation_map
 var movespeed:float = 70.0
 
+var pause_modifier: float = 1.0
+
 signal trigger_random_event
 
 signal trigger_major_event
@@ -78,7 +80,7 @@ func _physics_process(delta):
 	var speedup_modifier = 1.0
 	if Input.is_action_pressed("train_speedup"):
 		speedup_modifier = 3.0
-	velocity = global_position.direction_to(agent.get_next_path_position()) * movespeed * speedup_modifier
+	velocity = global_position.direction_to(agent.get_next_path_position()) * movespeed * pause_modifier * speedup_modifier
 	move_and_slide()
 
 
@@ -90,10 +92,12 @@ func point_on_tracks(point:Vector2) -> bool:
 	return (NavigationServer2D.map_get_closest_point(map, point) - point).is_zero_approx()
 
 func pause():
-	self.process_mode = PROCESS_MODE_DISABLED
+	#self.process_mode = PROCESS_MODE_DISABLED
+	pause_modifier = 0
 
 func unpause():
-	self.process_mode = PROCESS_MODE_INHERIT
+	#self.process_mode = PROCESS_MODE_INHERIT
+	pause_modifier = 1.0
 
 func _on_area_2d_area_entered(area):
 	if area.name == "TrainCollision":
