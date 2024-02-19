@@ -677,7 +677,7 @@ position = Vector2(31, 161)
 shape = SubResource("RectangleShape2D_i5g7q")
 
 [node name="FountainEvent" type="Node2D" parent="."]
-position = Vector2(31, 161)
+position = Vector2(2463, 982)
 
 [node name="WaterCollision" type="Area2D" parent="FountainEvent"]
 
@@ -685,16 +685,16 @@ position = Vector2(31, 161)
 shape = SubResource("RectangleShape2D_i5g7q")
 
 [node name="PyramidEvent" type="Node2D" parent="." groups=["honey"]]
-position = Vector2(31, 161)
+position = Vector2(-33, -1453)
 
 [node name="PyramidCollision" type="Area2D" parent="PyramidEvent"]
-position = Vector2(-62, -1599)
+position = Vector2(-9, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PyramidEvent/PyramidCollision"]
 shape = SubResource("RectangleShape2D_i5g7q")
 
 [node name="CrystalEvent" type="Node2D" parent="." groups=["crystal"]]
-position = Vector2(-2341, 984)
+position = Vector2(-2328, 983)
 
 [node name="CrystalCollision" type="Area2D" parent="CrystalEvent"]
 
