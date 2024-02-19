@@ -7,7 +7,7 @@
 script = ExtResource("1_niuqs")
 next_event_id = -1
 text = "You have won"
-effect_list = Array[int]([0])
+effect_list = Array[int]([17])
 result_text = ""
 upgrade = 0
 requires_upgrade = false

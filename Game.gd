@@ -14,8 +14,8 @@ var counter = 50
 
 var music_player
 
-var train_max_hp = 3
-var train_hp = 1
+var train_max_hp = 4
+var train_hp = 4
 var dead = false
 
 var train_speed = 200.0
