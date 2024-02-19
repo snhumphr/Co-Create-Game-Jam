@@ -182,6 +182,8 @@ func apply_effect(effect: GlobalDataSingle.Effect, upgrade: Choice.Upgrade):
 			if not upgrade == Choice.Upgrade.blank:
 				upgrade_dict[upgrade] = false
 				return "[color=red]" + upgrade_names[upgrade] + " upgrade removed...[/color]"
+			else:
+				return apply_effect(GlobalDataSingle.Effect.damageTrain, upgrade)
 		GlobalDataSingle.Effect.applyRandomUpgrade:
 			if keys.size() > 0:
 				return apply_effect(GlobalDataSingle.Effect.applyUpgrade, keys.pick_random())
