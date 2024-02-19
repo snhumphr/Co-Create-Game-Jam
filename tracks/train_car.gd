@@ -109,7 +109,7 @@ func _on_area_2d_area_entered(area):
 		emit_signal("trigger_random_event")
 	elif area.name == "PyramidCollision":
 		emit_signal("trigger_major_event", "Honey")
-	elif area.name == "SpringCollision":
+	elif area.name == "WaterCollision":
 		emit_signal("trigger_major_event", "Water")
 	elif area.name == "CrystalCollision":
 		emit_signal("trigger_major_event", "Crystal")
