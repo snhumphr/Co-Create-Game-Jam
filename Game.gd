@@ -103,6 +103,7 @@ func display_choice(event: Event):
 	if event.good:
 		goodness += randf_range(0.1, 0.5)
 
+	music_change.is_additive = true
 	music_player.receive_music_change(music_change)
 
 	var choices = instance.init(event, upgrade_dict)
@@ -252,6 +253,11 @@ func change_train_hp(change: int):
 	hp_bar.set_value(train_hp)
 	if train_hp == 0:
 		display_choice(events_dict[600])
+		var music_change = MusicChange.new()
+		music_change.energy = 0.0
+		music_change.goodness = 0.0
+		music_change.is_additive = false
+		MusicPlayer.instance.receive_music_change(music_change)
 		on_die.emit()
 		
 	# Emit the right sfx signal
