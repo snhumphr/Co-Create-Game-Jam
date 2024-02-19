@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://bv32edetho2vg"]
+
+[ext_resource type="Script" path="res://choice.gd" id="1_wy1xy"]
+[ext_resource type="Script" path="res://event.gd" id="2_elyi1"]
+
+[sub_resource type="Resource" id="Resource_fnlbb"]
+script = ExtResource("1_wy1xy")
+next_event_id = -1
+text = "Work as best you can"
+effect_list = Array[int]([15, 5])
+result_text = "Your crew gets to work, but exposure to the Waters of Youth slows your train down."
+upgrade = 0
+requires_upgrade = false
+
+[sub_resource type="Resource" id="Resource_sy5lq"]
+script = ExtResource("1_wy1xy")
+next_event_id = -1
+text = "[Upgrade]Repurpose the waterproof covering"
+effect_list = Array[int]([6, 16])
+result_text = "The train's waterproof covering is removed, and swiftly repurposed as a water carrying device."
+upgrade = 2
+requires_upgrade = true
+
+[resource]
+script = ExtResource("2_elyi1")
+id = 501
+name = "The Fountain"
+description = "Your train pulls up near the ancient Fountain, said to contain the Waters of Youth, one of the ingredients needed for immortality.
+
+The water is dangerous to work with, for excessive youth causes dematerialization, but your crew is skilled. They should manage.."
+random_event = false
+event_seen = false
+good = true
+bad = false
+choice_list = Array[ExtResource("1_wy1xy")]([SubResource("Resource_fnlbb"), SubResource("Resource_sy5lq")])

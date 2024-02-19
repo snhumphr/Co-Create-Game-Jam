@@ -15,7 +15,8 @@ var counter = 50
 var music_player
 
 var train_max_hp = 3
-var train_hp = 3
+var train_hp = 1
+var dead = false
 
 var train_speed = 200.0
 
@@ -97,20 +98,12 @@ func display_choice(event: Event):
 	instance.set_global_position(pos)
 
 	var music_change = MusicChange.new()
-	var goodness = 0.0
-	var energy = 0.0
+	var goodness = 0.5
 	if event.bad:
 		goodness -= randf_range(0.1, 0.5)
 	if event.good:
 		goodness += randf_range(0.1, 0.5)
-	if train_hp < 2:
-		energy += 0.2
-	if train_hp > 2:
-		energy -= 0.2
-		
-	music_change.goodness = goodness
-	music_change.energy = energy
-	music_change.is_additive = true
+
 	music_player.receive_music_change(music_change)
 
 	var choices = instance.init(event, upgrade_dict)
@@ -225,20 +218,29 @@ func _on_choices_item_activated(index: int, event: Event):
 	elif testing_events:
 		counter += 1
 		display_choice(events_dict[counter])
-	else:
+	elif not dead:
 		get_tree().call_group("entities", "unpause")
+	else:
+		on_die.emit()
+		display_choice(events_dict[600])
 
 func _on_trigger_major_event(type: String):
 
 	match type:
 		"Honey":
-			pass
+			display_choice(events_dict[500])
 		"Water":
-			pass
+			display_choice(events_dict[501])
 		"Crystal":
-			pass
+			display_choice(events_dict[502])
 		"Castle":
-			pass
+			var elixir = true
+			for key in ingredients_dict.keys():
+				if not ingredients_dict[key]:
+					elixir = false
+					break
+			if elixir:
+				display_choice(events_dict[700])
 
 func _on_trigger_random_event():
 
@@ -258,14 +260,8 @@ func change_train_hp(change: int):
 	train_hp += change
 	var hp_bar = get_tree().get_nodes_in_group("hp_bar")[0]
 	hp_bar.set_value(train_hp)
-	if train_hp == 0:
-		display_choice(events_dict[600])
-		var music_change = MusicChange.new()
-		music_change.energy = 0.0
-		music_change.goodness = 0.0
-		music_change.is_additive = false
-		MusicPlayer.instance.receive_music_change(music_change)
-		on_die.emit()
+	if train_hp <= 0:
+		dead = true
 		
 	# Emit the right sfx signal
 	if change > 0:
