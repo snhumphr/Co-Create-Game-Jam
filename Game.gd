@@ -263,6 +263,14 @@ func change_train_hp(change: int):
 	if train_hp <= 0:
 		dead = true
 		
+		# Change music because dead
+		var music_change = MusicChange.new()
+		music_change.energy = 0.0
+		music_change.goodness = 0.0
+		music_change.is_additive = false
+		MusicPlayer.instance.receive_music_change(music_change)
+		on_die.emit()
+		
 	# Emit the right sfx signal
 	if change > 0:
 		on_gained_hp.emit()
