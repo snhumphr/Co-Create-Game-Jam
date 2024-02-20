@@ -91,9 +91,9 @@ func display_choice(event: Event):
 	var scene = load("res://choice.tscn")
 	var instance = scene.instantiate()
 	var train = get_tree().get_nodes_in_group("train")[0]
-	
+
 	self.add_child(instance)
-	
+
 	var pos = train.get_global_position() - (Vector2.ONE * 250)
 	instance.set_global_position(pos)
 
@@ -114,9 +114,9 @@ func display_event_result(result_text: Array):
 	var scene = load("res://choice.tscn")
 	var instance = scene.instantiate()
 	var train = get_tree().get_nodes_in_group("train")[0]
-	
+
 	self.add_child(instance)
-	
+
 	var pos = train.get_global_position() - (Vector2.ONE * 250)
 	instance.set_global_position(pos)
 
@@ -264,7 +264,7 @@ func change_train_hp(change: int):
 	hp_bar.set_value(train_hp)
 	if train_hp <= 0:
 		dead = true
-		
+
 		# Change music because dead
 		var music_change = MusicChange.new()
 		music_change.energy = 0.0
@@ -272,7 +272,7 @@ func change_train_hp(change: int):
 		music_change.is_additive = false
 		MusicPlayer.instance.receive_music_change(music_change)
 		on_die.emit()
-		
+
 	# Emit the right sfx signal
 	if change > 0:
 		on_gained_hp.emit()

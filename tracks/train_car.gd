@@ -76,7 +76,7 @@ func _physics_process(delta):
 		else:
 			# continue straight
 			agent.target_position = next_point
-			
+
 	var speedup_modifier = 1.0
 	if Input.is_action_pressed("train_speedup"):
 		speedup_modifier = 3.0
