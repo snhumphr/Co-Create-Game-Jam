@@ -28,4 +28,8 @@ name = "The Crystal"
 description = "Your train pulls up near the ancient Crystal, said to contain the Prism, one of the ingredients needed for immortality.
 
 The Crystal is surpassingly hard, and it is said to be impossible to break off a piece."
+random_event = false
+event_seen = false
+good = false
+bad = false
 choice_list = Array[ExtResource("1_s4itc")]([SubResource("Resource_fnlbb"), SubResource("Resource_sy5lq")])

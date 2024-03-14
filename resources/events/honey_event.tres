@@ -32,4 +32,8 @@ name = "The Pyramid"
 description = "Your train pulls up near the ancient Pyramid, said to contain the Well-Preserved Honey, one of the ingredients needed for immortality.
 
 You and your crew disembark the train, and enter the darkness of the Pyramid. Your crew are frightened by one engraving: A colossal snail, called down as a curse upon tomb robbers."
+random_event = false
+event_seen = false
+good = false
+bad = false
 choice_list = Array[ExtResource("1_h81dx")]([SubResource("Resource_fnlbb"), SubResource("Resource_sy5lq")])

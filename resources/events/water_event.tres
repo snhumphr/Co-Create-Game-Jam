@@ -28,4 +28,8 @@ name = "The Fountain"
 description = "Your train pulls up near the ancient Fountain, said to contain the Waters of Youth, one of the ingredients needed for immortality.
 
 The water is dangerous to work with, for excessive youth causes dematerialization, but your crew is skilled. They should manage.."
+random_event = false
+event_seen = false
+good = false
+bad = false
 choice_list = Array[ExtResource("1_wy1xy")]([SubResource("Resource_fnlbb"), SubResource("Resource_sy5lq")])
