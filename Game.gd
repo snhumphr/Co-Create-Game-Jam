@@ -174,8 +174,8 @@ func apply_effect(effect: GlobalDataSingle.Effect, upgrade: Choice.Upgrade):
 				return "[color=green]" + pick_array.pick_random() + " found![/color]"
 		GlobalDataSingle.Effect.applyUpgrade:
 			if not upgrade_dict[upgrade]:
-				return "[color=green]" + upgrade_names[upgrade] + " upgrade applied![/color]"
 				upgrade_dict[upgrade] = true
+				return "[color=green]" + upgrade_names[upgrade] + " upgrade applied![/color]"
 			else:
 				return apply_effect(GlobalDataSingle.Effect.repairTrain, upgrade)
 		GlobalDataSingle.Effect.removeUpgrade:
