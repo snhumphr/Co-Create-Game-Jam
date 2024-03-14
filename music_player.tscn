@@ -1,16 +1,16 @@
 [gd_scene load_steps=12 format=3 uid="uid://dadj32lnhyq2x"]
 
 [ext_resource type="Script" path="res://music_player.gd" id="1_x3b2p"]
-[ext_resource type="AudioStream" uid="uid://3rrmhqmqpm85" path="res://resources/song/Song_Bass.wav" id="2_7vr5e"]
-[ext_resource type="AudioStream" uid="uid://csf0xk0dlnufp" path="res://resources/song/Song_Bass Pluck.wav" id="3_8prpv"]
-[ext_resource type="AudioStream" uid="uid://bxq7v563vdq6e" path="res://resources/song/Song_Tubes.wav" id="4_ddvkt"]
-[ext_resource type="AudioStream" uid="uid://n8t1bmp46dxj" path="res://resources/song/Song_Claps.wav" id="5_gvkya"]
-[ext_resource type="AudioStream" uid="uid://jqaetii8xutk" path="res://resources/song/Song_Plucks.wav" id="6_msa2n"]
-[ext_resource type="AudioStream" uid="uid://c3in6237kpnu6" path="res://resources/song/Song_Banjo.wav" id="7_teilw"]
-[ext_resource type="AudioStream" uid="uid://7gr5ra6qvqu0" path="res://resources/song/Song_Eviljo.wav" id="8_6gyjl"]
-[ext_resource type="AudioStream" uid="uid://c4ht3deebhile" path="res://resources/song/Song_Chior.wav" id="8_7vaak"]
-[ext_resource type="AudioStream" uid="uid://5jgh41kllenr" path="res://resources/song/Song_Acoustic Guitar.wav" id="9_5ljn6"]
-[ext_resource type="AudioStream" uid="uid://bdperkj8flhmv" path="res://resources/song/Song_Piano.wav" id="10_s4qkm"]
+[ext_resource type="AudioStream" uid="uid://cr4478iaa2lrx" path="res://resources/song/Song_Bass.ogg" id="2_mxdey"]
+[ext_resource type="AudioStream" uid="uid://ctiiskrmkxbr8" path="res://resources/song/Song_Bass Pluck.ogg" id="3_nmp80"]
+[ext_resource type="AudioStream" uid="uid://k3me2i7qvxm1" path="res://resources/song/Song_Tubes.ogg" id="4_q2ibq"]
+[ext_resource type="AudioStream" uid="uid://d4jj3cn0y4n2h" path="res://resources/song/Song_Claps.ogg" id="5_b04aj"]
+[ext_resource type="AudioStream" uid="uid://b63wwrngic28b" path="res://resources/song/Song_Plucks.ogg" id="6_m138i"]
+[ext_resource type="AudioStream" uid="uid://c7s84wo7mpwse" path="res://resources/song/Song_Banjo.ogg" id="7_i0mvb"]
+[ext_resource type="AudioStream" uid="uid://ctbya3idegxnq" path="res://resources/song/Song_Eviljo.ogg" id="8_pxjam"]
+[ext_resource type="AudioStream" uid="uid://bq43pv4ke3eju" path="res://resources/song/Song_Chior.ogg" id="9_ygm3x"]
+[ext_resource type="AudioStream" uid="uid://3tyssdsh3rml" path="res://resources/song/Song_Acoustic Guitar.ogg" id="10_t6m7f"]
+[ext_resource type="AudioStream" uid="uid://boro5j7gqmjsy" path="res://resources/song/Song_Piano.ogg" id="11_rmwt6"]
 
 [node name="Music Player" type="Node2D"]
 script = ExtResource("1_x3b2p")
@@ -18,41 +18,51 @@ script = ExtResource("1_x3b2p")
 [node name="Tracks" type="Node2D" parent="."]
 
 [node name="Bass" type="AudioStreamPlayer" parent="Tracks"]
-stream = ExtResource("2_7vr5e")
+stream = ExtResource("2_mxdey")
 bus = &"BGM"
+parameters/looping = true
 
 [node name="Bass Pluck" type="AudioStreamPlayer" parent="Tracks"]
-stream = ExtResource("3_8prpv")
+stream = ExtResource("3_nmp80")
 bus = &"BGM"
+parameters/looping = true
 
 [node name="Tubes" type="AudioStreamPlayer" parent="Tracks"]
-stream = ExtResource("4_ddvkt")
+stream = ExtResource("4_q2ibq")
 bus = &"BGM"
+parameters/looping = true
 
 [node name="Claps" type="AudioStreamPlayer" parent="Tracks"]
-stream = ExtResource("5_gvkya")
+stream = ExtResource("5_b04aj")
 bus = &"BGM"
+parameters/looping = true
 
 [node name="Plucks" type="AudioStreamPlayer" parent="Tracks"]
-stream = ExtResource("6_msa2n")
+stream = ExtResource("6_m138i")
 bus = &"BGM"
+parameters/looping = true
 
 [node name="Banjo" type="AudioStreamPlayer" parent="Tracks"]
-stream = ExtResource("7_teilw")
+stream = ExtResource("7_i0mvb")
 bus = &"BGM"
+parameters/looping = true
 
 [node name="Evil Banjo" type="AudioStreamPlayer" parent="Tracks"]
-stream = ExtResource("8_6gyjl")
+stream = ExtResource("8_pxjam")
 bus = &"BGM"
+parameters/looping = true
 
 [node name="Choir" type="AudioStreamPlayer" parent="Tracks"]
-stream = ExtResource("8_7vaak")
+stream = ExtResource("9_ygm3x")
 bus = &"BGM"
+parameters/looping = true
 
 [node name="Acoustic Guitar" type="AudioStreamPlayer" parent="Tracks"]
-stream = ExtResource("9_5ljn6")
+stream = ExtResource("10_t6m7f")
 bus = &"BGM"
+parameters/looping = true
 
 [node name="Piano" type="AudioStreamPlayer" parent="Tracks"]
-stream = ExtResource("10_s4qkm")
+stream = ExtResource("11_rmwt6")
 bus = &"BGM"
+parameters/looping = true

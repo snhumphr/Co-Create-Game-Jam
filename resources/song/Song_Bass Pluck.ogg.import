@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ctiiskrmkxbr8"
+path="res://.godot/imported/Song_Bass Pluck.ogg-1bdf652f7f8e1e241785ac25c1972fa8.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/song/Song_Bass Pluck.ogg"
+dest_files=["res://.godot/imported/Song_Bass Pluck.ogg-1bdf652f7f8e1e241785ac25c1972fa8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
