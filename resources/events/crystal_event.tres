@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://wetmovcstyof"]
+[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://bl6lrcgkv6qk0"]
 
 [ext_resource type="Script" path="res://choice.gd" id="1_s4itc"]
 [ext_resource type="Script" path="res://event.gd" id="2_qyclx"]
@@ -28,8 +28,4 @@ name = "The Crystal"
 description = "Your train pulls up near the ancient Crystal, said to contain the Prism, one of the ingredients needed for immortality.
 
 The Crystal is surpassingly hard, and it is said to be impossible to break off a piece."
-random_event = false
-event_seen = false
-good = true
-bad = false
 choice_list = Array[ExtResource("1_s4itc")]([SubResource("Resource_fnlbb"), SubResource("Resource_sy5lq")])

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://cftho7ayyo0tq"]
+[gd_resource type="Resource" script_class="Event" load_steps=5 format=3 uid="uid://ckhwfnbfoqgve"]
 
 [ext_resource type="Script" path="res://choice.gd" id="1_h81dx"]
 [ext_resource type="Script" path="res://event.gd" id="2_blox2"]
@@ -32,8 +32,4 @@ name = "The Pyramid"
 description = "Your train pulls up near the ancient Pyramid, said to contain the Well-Preserved Honey, one of the ingredients needed for immortality.
 
 You and your crew disembark the train, and enter the darkness of the Pyramid. Your crew are frightened by one engraving: A colossal snail, called down as a curse upon tomb robbers."
-random_event = false
-event_seen = false
-good = true
-bad = false
 choice_list = Array[ExtResource("1_h81dx")]([SubResource("Resource_fnlbb"), SubResource("Resource_sy5lq")])
